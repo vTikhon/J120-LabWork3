@@ -274,362 +274,30 @@ public class CalculatorWindow extends JFrame {
                 buttonNinePusher();
             }
             if (userAction.getSource() == buttonPoint) {
-                if (pole2String.contains(".")) {
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + ".";
-                    textLabel2.setText(pole2String);
-                }
+                buttonPointPusher();
             }
-
-
             if (userAction.getSource() == buttonAddition) {
-                if (pole1String.contains("+") && pole2String == "") {
-
-                } else if (pole1String.contains("+") && pole2String != "") {
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double + pole2Double;
-                    pole2Double = pole1Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    }
-                } else if (pole1String.contains("-") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00D7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00F7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "+";
-                        textLabel1.setText(pole1String);
-                    }
-                } else {
-                    pole1String = pole2String + "+";
-                    textLabel1.setText(pole1String);
-                    pole1Double = Double.parseDouble(pole2String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
+                buttonAdditionPusher();
             }
-
-
             if (userAction.getSource() == buttonSubtraction) {
-                if (pole1String.contains("-") && pole2String == "") {
-
-                } else if (pole1String.contains("-") && pole2String != "") {
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double - pole2Double;
-                    pole2Double = pole1Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    }
-                } else if (pole1String.contains("+") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00D7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00F7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "-";
-                        textLabel1.setText(pole1String);
-                    }
-                } else {
-                    pole1String = pole2String + "-";
-                    textLabel1.setText(pole1String);
-                    pole1Double = Double.parseDouble(pole2String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
+                buttonSubtractionPusher();
             }
-
-
             if (userAction.getSource() == buttonMultiplication) {
-                if (pole1String.contains("\u00D7") && pole2String == "") {
-
-                } else if (pole1String.contains("\u00D7") && pole2String != "") {
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double * pole2Double;
-                    pole2Double = pole1Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    }
-                } else if (pole1String.contains("+") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("-") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00F7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00D7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else {
-                    pole1String = pole2String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                    pole1Double = Double.parseDouble(pole2String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
+                buttonMultiplicationPusher();
             }
-
-
             if (userAction.getSource() == buttonDivision) {
-                if (pole1String.contains("\u00F7") && pole2String == "") {
-
-                } else if (pole1String.contains("\u00F7") && pole2String != "") {
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double / pole2Double;
-                    pole2Double = pole1Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole2String = pole1String;
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                        textLabel2.setText(pole2String);
-                        pole2String = "";
-                    }
-                } else if (pole1String.contains("+") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("-") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else if (pole1String.contains("\u00D7") && pole2String == "") {
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole1String = Integer.toString(pole1Integer);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    } else {
-                        pole1String = Double.toString(pole1Double);
-                        pole1String = pole1String + "\u00F7";
-                        textLabel1.setText(pole1String);
-                    }
-                } else {
-                    pole1String = pole2String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                    pole1Double = Double.parseDouble(pole2String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
+                buttonDivisionPusher();
             }
-
-
             if (userAction.getSource() == buttonPlusMinus) {
-                pole2Double = Double.parseDouble(pole2String);
-                if (pole2Double % 1 == 0) {
-                    pole2Integer = (int) pole2Double;
-                    pole2Integer = -1 * pole2Integer;
-                    pole2String = Integer.toString(pole2Integer);
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2Double = -1 * pole2Double;
-                    pole2String = Double.toString(pole2Double);
-                    textLabel2.setText(pole2String);
-                }
+                buttonPlusMinusPusher();
             }
-
             if (userAction.getSource() == buttonEquals) {
-                if (pole1String.contains("+")) {
-                    pole1String = pole1String + pole2String;
-                    textLabel1.setText(pole1String + "=");
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double + pole2Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole2String = Integer.toString(pole1Integer);
-                        textLabel2.setText(pole2String);
-                    } else {
-                        pole2String = Double.toString(pole1Double);
-                        textLabel2.setText(pole2String);
-                    }
-                }
-                if (pole1String.contains("-")) {
-                    pole1String = pole1String + pole2String;
-                    textLabel1.setText(pole1String + "=");
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double - pole2Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole2String = Integer.toString(pole1Integer);
-                        textLabel2.setText(pole2String);
-                    } else {
-                        pole2String = Double.toString(pole1Double);
-                        textLabel2.setText(pole2String);
-                    }
-                }
-                if (pole1String.contains("\u00D7")) {
-                    pole1String = pole1String + pole2String;
-                    textLabel1.setText(pole1String + "=");
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double * pole2Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole2String = Integer.toString(pole1Integer);
-                        textLabel2.setText(pole2String);
-                    } else {
-                        pole2String = Double.toString(pole1Double);
-                        textLabel2.setText(pole2String);
-                    }
-                }
-                if (pole1String.contains("\u00F7")) {
-                    pole1String = pole1String + pole2String;
-                    textLabel1.setText(pole1String + "=");
-                    pole2Double = Double.parseDouble(pole2String);
-                    pole1Double = pole1Double / pole2Double;
-                    if (pole1Double % 1 == 0) {
-                        pole1Integer = (int) pole1Double;
-                        pole2String = Integer.toString(pole1Integer);
-                        textLabel2.setText(pole2String);
-                    } else {
-                        pole2String = Double.toString(pole1Double);
-                        textLabel2.setText(pole2String);
-                    }
-                }
+                buttonEqualsPusher();
             }
             if (userAction.getSource() == buttonClean) {
-                pole1String = "";
-                pole2String = "0";
-                textLabel1.setText(pole1String);
-                textLabel2.setText(pole2String);
-                pole2Double = Double.parseDouble(pole2String);
+                buttonCleanPusher();
             }
         }
-
-
-
 
         public void buttonZeroPusher () {
             if (pole2String == "0") {
@@ -730,6 +398,357 @@ public class CalculatorWindow extends JFrame {
                 textLabel2.setText(pole2String);
             }
         }
+
+        public void buttonAdditionPusher () {
+            if (pole1String.contains("+") && pole2String == "") {
+
+            } else if (pole1String.contains("+") && pole2String != "") {
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double + pole2Double;
+                pole2Double = pole1Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                }
+            } else if (pole1String.contains("-") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "+";
+                    textLabel1.setText(pole1String);
+                }
+            } else {
+                pole1String = pole2String + "+";
+                textLabel1.setText(pole1String);
+                pole1Double = Double.parseDouble(pole2String);
+                textLabel2.setText(pole2String);
+                pole2String = "";
+            }
+        }
+
+        public void buttonSubtractionPusher () {
+            if (pole1String.contains("-") && pole2String == "") {
+
+            } else if (pole1String.contains("-") && pole2String != "") {
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double - pole2Double;
+                pole2Double = pole1Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                }
+            } else if (pole1String.contains("+") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "-";
+                    textLabel1.setText(pole1String);
+                }
+            } else {
+                pole1String = pole2String + "-";
+                textLabel1.setText(pole1String);
+                pole1Double = Double.parseDouble(pole2String);
+                textLabel2.setText(pole2String);
+                pole2String = "";
+            }
+        }
+
+        public void buttonMultiplicationPusher () {
+            if (pole1String.contains("\u00D7") && pole2String == "") {
+
+            } else if (pole1String.contains("\u00D7") && pole2String != "") {
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double * pole2Double;
+                pole2Double = pole1Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                }
+            } else if (pole1String.contains("+") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("-") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00D7";
+                    textLabel1.setText(pole1String);
+                }
+            } else {
+                pole1String = pole2String + "\u00D7";
+                textLabel1.setText(pole1String);
+                pole1Double = Double.parseDouble(pole2String);
+                textLabel2.setText(pole2String);
+                pole2String = "";
+            }
+        }
+
+        public void buttonDivisionPusher () {
+            if (pole1String.contains("\u00F7") && pole2String == "") {
+
+            } else if (pole1String.contains("\u00F7") && pole2String != "") {
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double / pole2Double;
+                pole2Double = pole1Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole2String = pole1String;
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                    textLabel2.setText(pole2String);
+                    pole2String = "";
+                }
+            } else if (pole1String.contains("+") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("-") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                }
+            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole1String = Integer.toString(pole1Integer);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                } else {
+                    pole1String = Double.toString(pole1Double);
+                    pole1String = pole1String + "\u00F7";
+                    textLabel1.setText(pole1String);
+                }
+            } else {
+                pole1String = pole2String + "\u00F7";
+                textLabel1.setText(pole1String);
+                pole1Double = Double.parseDouble(pole2String);
+                textLabel2.setText(pole2String);
+                pole2String = "";
+            }
+        }
+
+        public void buttonPlusMinusPusher () {
+            pole2Double = Double.parseDouble(pole2String);
+            if (pole2Double % 1 == 0) {
+                pole2Integer = (int) pole2Double;
+                pole2Integer = -1 * pole2Integer;
+                pole2String = Integer.toString(pole2Integer);
+                textLabel2.setText(pole2String);
+            } else {
+                pole2Double = -1 * pole2Double;
+                pole2String = Double.toString(pole2Double);
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonEqualsPusher () {
+            if (pole1String.contains("+")) {
+                pole1String = pole1String + pole2String;
+                textLabel1.setText(pole1String + "=");
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double + pole2Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole2String = Integer.toString(pole1Integer);
+                    textLabel2.setText(pole2String);
+                } else {
+                    pole2String = Double.toString(pole1Double);
+                    textLabel2.setText(pole2String);
+                }
+            }
+            if (pole1String.contains("-")) {
+                pole1String = pole1String + pole2String;
+                textLabel1.setText(pole1String + "=");
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double - pole2Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole2String = Integer.toString(pole1Integer);
+                    textLabel2.setText(pole2String);
+                } else {
+                    pole2String = Double.toString(pole1Double);
+                    textLabel2.setText(pole2String);
+                }
+            }
+            if (pole1String.contains("\u00D7")) {
+                pole1String = pole1String + pole2String;
+                textLabel1.setText(pole1String + "=");
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double * pole2Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole2String = Integer.toString(pole1Integer);
+                    textLabel2.setText(pole2String);
+                } else {
+                    pole2String = Double.toString(pole1Double);
+                    textLabel2.setText(pole2String);
+                }
+            }
+            if (pole1String.contains("\u00F7")) {
+                pole1String = pole1String + pole2String;
+                textLabel1.setText(pole1String + "=");
+                pole2Double = Double.parseDouble(pole2String);
+                pole1Double = pole1Double / pole2Double;
+                if (pole1Double % 1 == 0) {
+                    pole1Integer = (int) pole1Double;
+                    pole2String = Integer.toString(pole1Integer);
+                    textLabel2.setText(pole2String);
+                } else {
+                    pole2String = Double.toString(pole1Double);
+                    textLabel2.setText(pole2String);
+                }
+            }
+        }
+
+        public void buttonCleanPusher () {
+            pole1String = "";
+            pole2String = "0";
+            textLabel1.setText(pole1String);
+            textLabel2.setText(pole2String);
+            pole2Double = Double.parseDouble(pole2String);
+        }
+
+        public void buttonPointPusher () {
+            if (pole2String.contains(".")) {
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + ".";
+                textLabel2.setText(pole2String);
+            }
+        }
+
     }
 }
 
