@@ -285,104 +285,44 @@ public class CalculatorWindow extends JFrame {
             }
         }
 
+        public void algorithmIfDigitalButtonIsPushed (String digitButton) {
+            if (pole2String.equals("0")) {
+                pole2String = digitButton;
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + digitButton;
+                textLabel2.setText(pole2String);
+            }
+        }
         public void buttonZeroPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "0";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "0";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("0");
         }
-
         public void buttonOnePusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "1";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "1";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("1");
         }
-
         public void buttonTwoPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "2";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "2";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("2");
         }
-
         public void buttonThreePusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "3";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "3";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("3");
         }
-
         public void buttonFourPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "4";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "4";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("4");
         }
-
         public void buttonFivePusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "5";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "5";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("5");
         }
-
         public void buttonSixPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "6";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "6";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("6");
         }
-
         public void buttonSevenPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "7";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "7";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("7");
         }
-
         public void buttonEightPusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "8";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "8";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("8");
         }
-
         public void buttonNinePusher () {
-            if (pole2String.equals("0")) {
-                pole2String = "9";
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + "9";
-                textLabel2.setText(pole2String);
-            }
+            algorithmIfDigitalButtonIsPushed("9");
         }
 
         public void buttonAdditionPusher () {
