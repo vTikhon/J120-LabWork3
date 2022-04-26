@@ -262,26 +262,25 @@ public class CalculatorWindow extends JFrame {
             buttonPoint.setActionCommand(POINT_BUTTON);
             buttonClean.setActionCommand(CLEAN_BUTTON);
 
-            switch(userAction.getActionCommand()) {
-                case ZERO_BUTTON: buttonZeroPusher(); break;
-                case ONE_BUTTON: buttonOnePusher(); break;
-                case TWO_BUTTON: buttonTwoPusher(); break;
-                case THREE_BUTTON: buttonThreePusher(); break;
-                case FOUR_BUTTON: buttonFourPusher(); break;
-                case FIVE_BUTTON: buttonFivePusher(); break;
-                case SIX_BUTTON: buttonSixPusher(); break;
-                case SEVEN_BUTTON: buttonSevenPusher(); break;
-                case EIGHT_BUTTON: buttonEightPusher(); break;
-                case NINE_BUTTON: buttonNinePusher(); break;
-                case ADDITION_BUTTON: buttonAdditionPusher(); break;
-                case SUBTRACTION_BUTTON: buttonSubtractionPusher(); break;
-                case MULTIPLICATION_BUTTON: buttonMultiplicationPusher(); break;
-                case DIVISION_BUTTON: buttonDivisionPusher(); break;
-                case PLUSMINUS_BUTTON: buttonPlusMinusPusher(); break;
-                case EQUALS_BUTTON: buttonEqualsPusher(); break;
-                case POINT_BUTTON: buttonPointPusher(); break;
-                case CLEAN_BUTTON: buttonCleanPusher(); break;
-//                case default: System.err.println("Unknown Action " + userAction.getActionCommand());
+            switch (userAction.getActionCommand()) {
+                case ZERO_BUTTON -> buttonZeroPusher();
+                case ONE_BUTTON -> buttonOnePusher();
+                case TWO_BUTTON -> buttonTwoPusher();
+                case THREE_BUTTON -> buttonThreePusher();
+                case FOUR_BUTTON -> buttonFourPusher();
+                case FIVE_BUTTON -> buttonFivePusher();
+                case SIX_BUTTON -> buttonSixPusher();
+                case SEVEN_BUTTON -> buttonSevenPusher();
+                case EIGHT_BUTTON -> buttonEightPusher();
+                case NINE_BUTTON -> buttonNinePusher();
+                case ADDITION_BUTTON -> buttonAdditionPusher();
+                case SUBTRACTION_BUTTON -> buttonSubtractionPusher();
+                case MULTIPLICATION_BUTTON -> buttonMultiplicationPusher();
+                case DIVISION_BUTTON -> buttonDivisionPusher();
+                case PLUSMINUS_BUTTON -> buttonPlusMinusPusher();
+                case EQUALS_BUTTON -> buttonEqualsPusher();
+                case POINT_BUTTON -> buttonPointPusher();
+                case CLEAN_BUTTON -> buttonCleanPusher();
             }
         }
 
@@ -318,10 +317,10 @@ public class CalculatorWindow extends JFrame {
         public void correctLabel1IfItTheSameSymbol (String symbol, char action) {
             pole2Double = Double.parseDouble(pole2String);
             switch (action) {
-                case '+': pole1Double = pole1Double + pole2Double; break;
-                case '-': pole1Double = pole1Double - pole2Double; break;
-                case '*': pole1Double = pole1Double * pole2Double; break;
-                case '/': pole1Double = pole1Double / pole2Double; break;
+                case '+' -> pole1Double = pole1Double + pole2Double;
+                case '-' -> pole1Double = pole1Double - pole2Double;
+                case '*' -> pole1Double = pole1Double * pole2Double;
+                case '/' -> pole1Double = pole1Double / pole2Double;
             }
             pole2Double = pole1Double;
             if (pole1Double % 1 == 0) {
@@ -336,10 +335,8 @@ public class CalculatorWindow extends JFrame {
             textLabel2.setText(pole2String);
             pole2String = "";
         }
-
         public void buttonAdditionPusher () {
-            if (pole1String.contains("+") && pole2String.equals("")) {}
-            else if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
+            if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
             else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
             else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
             else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
@@ -351,10 +348,8 @@ public class CalculatorWindow extends JFrame {
                 pole2String = "";
             }
         }
-
         public void buttonSubtractionPusher () {
-            if (pole1String.contains("-") && pole2String.equals("")) {}
-            else if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
+            if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
             else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
             else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
             else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
@@ -366,10 +361,8 @@ public class CalculatorWindow extends JFrame {
                 pole2String = "";
             }
         }
-
         public void buttonMultiplicationPusher () {
-            if (pole1String.contains("\u00D7") && pole2String.equals("")) {}
-            else if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
+            if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
             else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
             else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
             else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
@@ -381,10 +374,8 @@ public class CalculatorWindow extends JFrame {
                 pole2String = "";
             }
         }
-
         public void buttonDivisionPusher () {
-            if (pole1String.contains("\u00F7") && pole2String.equals("")) {}
-            else if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
+            if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
             else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
             else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
             else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
@@ -394,6 +385,31 @@ public class CalculatorWindow extends JFrame {
                 pole1Double = Double.parseDouble(pole2String);
                 textLabel2.setText(pole2String);
                 pole2String = "";
+            }
+        }
+        public void buttonEqualsPusher () {
+            if (pole1String.contains("+")) {equating('+');}
+            if (pole1String.contains("-")) {equating('-');}
+            if (pole1String.contains("\u00D7")) {equating('*');}
+            if (pole1String.contains("\u00F7")) {equating('/');}
+        }
+        public void equating (char action) {
+            pole1String = pole1String + pole2String;
+            textLabel1.setText(pole1String + "=");
+            pole2Double = Double.parseDouble(pole2String);
+            switch (action) {
+                case '+' -> pole1Double = pole1Double + pole2Double;
+                case '-' -> pole1Double = pole1Double - pole2Double;
+                case '*' -> pole1Double = pole1Double * pole2Double;
+                case '/' -> pole1Double = pole1Double / pole2Double;
+            }
+            if (pole1Double % 1 == 0) {
+                pole1Integer = (int) pole1Double;
+                pole2String = Integer.toString(pole1Integer);
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = Double.toString(pole1Double);
+                textLabel2.setText(pole2String);
             }
         }
 
@@ -408,65 +424,6 @@ public class CalculatorWindow extends JFrame {
                 pole2Double = -1 * pole2Double;
                 pole2String = Double.toString(pole2Double);
                 textLabel2.setText(pole2String);
-            }
-        }
-
-        public void buttonEqualsPusher () {
-            if (pole1String.contains("+")) {
-                pole1String = pole1String + pole2String;
-                textLabel1.setText(pole1String + "=");
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double + pole2Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole2String = Integer.toString(pole1Integer);
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = Double.toString(pole1Double);
-                    textLabel2.setText(pole2String);
-                }
-            }
-            if (pole1String.contains("-")) {
-                pole1String = pole1String + pole2String;
-                textLabel1.setText(pole1String + "=");
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double - pole2Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole2String = Integer.toString(pole1Integer);
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = Double.toString(pole1Double);
-                    textLabel2.setText(pole2String);
-                }
-            }
-            if (pole1String.contains("\u00D7")) {
-                pole1String = pole1String + pole2String;
-                textLabel1.setText(pole1String + "=");
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double * pole2Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole2String = Integer.toString(pole1Integer);
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = Double.toString(pole1Double);
-                    textLabel2.setText(pole2String);
-                }
-            }
-            if (pole1String.contains("\u00F7")) {
-                pole1String = pole1String + pole2String;
-                textLabel1.setText(pole1String + "=");
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double / pole2Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole2String = Integer.toString(pole1Integer);
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = Double.toString(pole1Double);
-                    textLabel2.setText(pole2String);
-                }
             }
         }
 
@@ -486,7 +443,6 @@ public class CalculatorWindow extends JFrame {
                 textLabel2.setText(pole2String);
             }
         }
-
     }
 }
 
