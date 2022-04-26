@@ -241,61 +241,47 @@ public class CalculatorWindow extends JFrame {
     }
 
 
-    public class CalculatorAction implements ActionListener {
+    public class CalculatorAction implements ActionListener, ButtonsForCalculator {
         public void actionPerformed(ActionEvent userAction) {
-            if (userAction.getSource() == buttonZero) {
-                buttonZeroPusher();
-            }
-            if (userAction.getSource() == buttonOne) {
-                buttonOnePusher();
-            }
-            if (userAction.getSource() == buttonTwo) {
-                buttonTwoPusher();
-            }
-            if (userAction.getSource() == buttonThree) {
-                buttonThreePusher();
-            }
-            if (userAction.getSource() == buttonFour) {
-                buttonFourPusher();
-            }
-            if (userAction.getSource() == buttonFive) {
-                buttonFivePusher();
-            }
-            if (userAction.getSource() == buttonSix) {
-                buttonSixPusher();
-            }
-            if (userAction.getSource() == buttonSeven) {
-                buttonSevenPusher();
-            }
-            if (userAction.getSource() == buttonEight) {
-                buttonEightPusher();
-            }
-            if (userAction.getSource() == buttonNine) {
-                buttonNinePusher();
-            }
-            if (userAction.getSource() == buttonPoint) {
-                buttonPointPusher();
-            }
-            if (userAction.getSource() == buttonAddition) {
-                buttonAdditionPusher();
-            }
-            if (userAction.getSource() == buttonSubtraction) {
-                buttonSubtractionPusher();
-            }
-            if (userAction.getSource() == buttonMultiplication) {
-                buttonMultiplicationPusher();
-            }
-            if (userAction.getSource() == buttonDivision) {
-                buttonDivisionPusher();
-            }
-            if (userAction.getSource() == buttonPlusMinus) {
-                buttonPlusMinusPusher();
-            }
-            if (userAction.getSource() == buttonEquals) {
-                buttonEqualsPusher();
-            }
-            if (userAction.getSource() == buttonClean) {
-                buttonCleanPusher();
+            buttonZero.setActionCommand(ZERO_BUTTON);
+            buttonOne.setActionCommand(ONE_BUTTON);
+            buttonTwo.setActionCommand(TWO_BUTTON);
+            buttonThree.setActionCommand(THREE_BUTTON);
+            buttonFour.setActionCommand(FOUR_BUTTON);
+            buttonFive.setActionCommand(FIVE_BUTTON);
+            buttonSix.setActionCommand(SIX_BUTTON);
+            buttonSeven.setActionCommand(SEVEN_BUTTON);
+            buttonEight.setActionCommand(EIGHT_BUTTON);
+            buttonNine.setActionCommand(NINE_BUTTON);
+            buttonAddition.setActionCommand(ADDITION_BUTTON);
+            buttonSubtraction.setActionCommand(SUBTRACTION_BUTTON);
+            buttonMultiplication.setActionCommand(MULTIPLICATION_BUTTON);
+            buttonDivision.setActionCommand(DIVISION_BUTTON);
+            buttonPlusMinus.setActionCommand(PLUSMINUS_BUTTON);
+            buttonEquals.setActionCommand(EQUALS_BUTTON);
+            buttonPoint.setActionCommand(POINT_BUTTON);
+            buttonClean.setActionCommand(CLEAN_BUTTON);
+
+            switch(userAction.getActionCommand()) {
+                case ZERO_BUTTON: buttonZeroPusher(); break;
+                case ONE_BUTTON: buttonOnePusher(); break;
+                case TWO_BUTTON: buttonTwoPusher(); break;
+                case THREE_BUTTON: buttonThreePusher(); break;
+                case FOUR_BUTTON: buttonFourPusher(); break;
+                case FIVE_BUTTON: buttonFivePusher(); break;
+                case SIX_BUTTON: buttonSixPusher(); break;
+                case SEVEN_BUTTON: buttonSevenPusher(); break;
+                case EIGHT_BUTTON: buttonEightPusher(); break;
+                case NINE_BUTTON: buttonNinePusher(); break;
+                case ADDITION_BUTTON: buttonAdditionPusher(); break;
+                case SUBTRACTION_BUTTON: buttonSubtractionPusher(); break;
+                case MULTIPLICATION_BUTTON: buttonMultiplicationPusher(); break;
+                case DIVISION_BUTTON: buttonDivisionPusher(); break;
+                case PLUSMINUS_BUTTON: buttonPlusMinusPusher(); break;
+                case EQUALS_BUTTON: buttonEqualsPusher(); break;
+                case POINT_BUTTON: buttonPointPusher(); break;
+                case CLEAN_BUTTON: buttonCleanPusher(); break;
+//                case default: System.err.println("Unknown Action " + userAction.getActionCommand());
             }
         }
 
