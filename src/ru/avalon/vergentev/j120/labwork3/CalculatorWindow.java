@@ -286,7 +286,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonZeroPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "0";
                 textLabel2.setText(pole2String);
             } else {
@@ -296,7 +296,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonOnePusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "1";
                 textLabel2.setText(pole2String);
             } else {
@@ -306,7 +306,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonTwoPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "2";
                 textLabel2.setText(pole2String);
             } else {
@@ -316,7 +316,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonThreePusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "3";
                 textLabel2.setText(pole2String);
             } else {
@@ -326,7 +326,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonFourPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "4";
                 textLabel2.setText(pole2String);
             } else {
@@ -336,7 +336,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonFivePusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "5";
                 textLabel2.setText(pole2String);
             } else {
@@ -346,7 +346,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonSixPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "6";
                 textLabel2.setText(pole2String);
             } else {
@@ -356,7 +356,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonSevenPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "7";
                 textLabel2.setText(pole2String);
             } else {
@@ -366,7 +366,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonEightPusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "8";
                 textLabel2.setText(pole2String);
             } else {
@@ -376,7 +376,7 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonNinePusher () {
-            if (pole2String == "0") {
+            if (pole2String.equals("0")) {
                 pole2String = "9";
                 textLabel2.setText(pole2String);
             } else {
@@ -386,9 +386,9 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonAdditionPusher () {
-            if (pole1String.contains("+") && pole2String == "") {
+            if (pole1String.contains("+") && pole2String.equals("")) {
 
-            } else if (pole1String.contains("+") && pole2String != "") {
+            } else if (pole1String.contains("+") && !pole2String.equals("")) {
                 pole2Double = Double.parseDouble(pole2String);
                 pole1Double = pole1Double + pole2Double;
                 pole2Double = pole1Double;
@@ -408,7 +408,7 @@ public class CalculatorWindow extends JFrame {
                     textLabel2.setText(pole2String);
                     pole2String = "";
                 }
-            } else if (pole1String.contains("-") && pole2String == "") {
+            } else if (pole1String.contains("-") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -419,7 +419,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "+";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -430,7 +430,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "+";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -451,9 +451,9 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonSubtractionPusher () {
-            if (pole1String.contains("-") && pole2String == "") {
+            if (pole1String.contains("-") && pole2String.equals("")) {
 
-            } else if (pole1String.contains("-") && pole2String != "") {
+            } else if (pole1String.contains("-") && !pole2String.equals("")) {
                 pole2Double = Double.parseDouble(pole2String);
                 pole1Double = pole1Double - pole2Double;
                 pole2Double = pole1Double;
@@ -473,7 +473,7 @@ public class CalculatorWindow extends JFrame {
                     textLabel2.setText(pole2String);
                     pole2String = "";
                 }
-            } else if (pole1String.contains("+") && pole2String == "") {
+            } else if (pole1String.contains("+") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -484,7 +484,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "-";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -495,7 +495,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "-";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -516,9 +516,9 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonMultiplicationPusher () {
-            if (pole1String.contains("\u00D7") && pole2String == "") {
+            if (pole1String.contains("\u00D7") && pole2String.equals("")) {
 
-            } else if (pole1String.contains("\u00D7") && pole2String != "") {
+            } else if (pole1String.contains("\u00D7") && !pole2String.equals("")) {
                 pole2Double = Double.parseDouble(pole2String);
                 pole1Double = pole1Double * pole2Double;
                 pole2Double = pole1Double;
@@ -538,7 +538,7 @@ public class CalculatorWindow extends JFrame {
                     textLabel2.setText(pole2String);
                     pole2String = "";
                 }
-            } else if (pole1String.contains("+") && pole2String == "") {
+            } else if (pole1String.contains("+") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -549,7 +549,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "\u00D7";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("-") && pole2String == "") {
+            } else if (pole1String.contains("-") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -560,7 +560,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "\u00D7";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00F7") && pole2String == "") {
+            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -581,9 +581,9 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonDivisionPusher () {
-            if (pole1String.contains("\u00F7") && pole2String == "") {
+            if (pole1String.contains("\u00F7") && pole2String.equals("")) {
 
-            } else if (pole1String.contains("\u00F7") && pole2String != "") {
+            } else if (pole1String.contains("\u00F7") && !pole2String.equals("")) {
                 pole2Double = Double.parseDouble(pole2String);
                 pole1Double = pole1Double / pole2Double;
                 pole2Double = pole1Double;
@@ -603,7 +603,7 @@ public class CalculatorWindow extends JFrame {
                     textLabel2.setText(pole2String);
                     pole2String = "";
                 }
-            } else if (pole1String.contains("+") && pole2String == "") {
+            } else if (pole1String.contains("+") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -614,7 +614,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "\u00F7";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("-") && pole2String == "") {
+            } else if (pole1String.contains("-") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
@@ -625,7 +625,7 @@ public class CalculatorWindow extends JFrame {
                     pole1String = pole1String + "\u00F7";
                     textLabel1.setText(pole1String);
                 }
-            } else if (pole1String.contains("\u00D7") && pole2String == "") {
+            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
                 if (pole1Double % 1 == 0) {
                     pole1Integer = (int) pole1Double;
                     pole1String = Integer.toString(pole1Integer);
