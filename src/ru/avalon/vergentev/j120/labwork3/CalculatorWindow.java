@@ -294,94 +294,56 @@ public class CalculatorWindow extends JFrame {
                 textLabel2.setText(pole2String);
             }
         }
-        public void buttonZeroPusher () {
-            algorithmIfDigitalButtonIsPushed("0");
+        public void buttonZeroPusher () {algorithmIfDigitalButtonIsPushed("0");}
+        public void buttonOnePusher () {algorithmIfDigitalButtonIsPushed("1");}
+        public void buttonTwoPusher () {algorithmIfDigitalButtonIsPushed("2");}
+        public void buttonThreePusher () {algorithmIfDigitalButtonIsPushed("3");}
+        public void buttonFourPusher () {algorithmIfDigitalButtonIsPushed("4");}
+        public void buttonFivePusher () {algorithmIfDigitalButtonIsPushed("5");}
+        public void buttonSixPusher () {algorithmIfDigitalButtonIsPushed("6");}
+        public void buttonSevenPusher () {algorithmIfDigitalButtonIsPushed("7");}
+        public void buttonEightPusher () {algorithmIfDigitalButtonIsPushed("8");}
+        public void buttonNinePusher () {algorithmIfDigitalButtonIsPushed("9");}
+
+        public void correctLabel1IfItHasAnotherSymbol (String symbol) {
+            if (pole1Double % 1 == 0) {
+                pole1Integer = (int) pole1Double;
+                pole1String = Integer.toString(pole1Integer);
+            } else {
+                pole1String = Double.toString(pole1Double);
+            }
+            pole1String = pole1String + symbol;
+            textLabel1.setText(pole1String);
         }
-        public void buttonOnePusher () {
-            algorithmIfDigitalButtonIsPushed("1");
-        }
-        public void buttonTwoPusher () {
-            algorithmIfDigitalButtonIsPushed("2");
-        }
-        public void buttonThreePusher () {
-            algorithmIfDigitalButtonIsPushed("3");
-        }
-        public void buttonFourPusher () {
-            algorithmIfDigitalButtonIsPushed("4");
-        }
-        public void buttonFivePusher () {
-            algorithmIfDigitalButtonIsPushed("5");
-        }
-        public void buttonSixPusher () {
-            algorithmIfDigitalButtonIsPushed("6");
-        }
-        public void buttonSevenPusher () {
-            algorithmIfDigitalButtonIsPushed("7");
-        }
-        public void buttonEightPusher () {
-            algorithmIfDigitalButtonIsPushed("8");
-        }
-        public void buttonNinePusher () {
-            algorithmIfDigitalButtonIsPushed("9");
+        public void correctLabel1IfItTheSameSymbol (String symbol, char action) {
+            pole2Double = Double.parseDouble(pole2String);
+            switch (action) {
+                case '+': pole1Double = pole1Double + pole2Double; break;
+                case '-': pole1Double = pole1Double - pole2Double; break;
+                case '*': pole1Double = pole1Double * pole2Double; break;
+                case '/': pole1Double = pole1Double / pole2Double; break;
+            }
+            pole2Double = pole1Double;
+            if (pole1Double % 1 == 0) {
+                pole1Integer = (int) pole1Double;
+                pole1String = Integer.toString(pole1Integer);
+            } else {
+                pole1String = Double.toString(pole1Double);
+            }
+            pole2String = pole1String;
+            pole1String = pole1String + symbol;
+            textLabel1.setText(pole1String);
+            textLabel2.setText(pole2String);
+            pole2String = "";
         }
 
         public void buttonAdditionPusher () {
-            if (pole1String.contains("+") && pole2String.equals("")) {
-
-            } else if (pole1String.contains("+") && !pole2String.equals("")) {
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double + pole2Double;
-                pole2Double = pole1Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
-            } else if (pole1String.contains("-") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "+";
-                    textLabel1.setText(pole1String);
-                }
-            } else {
+            if (pole1String.contains("+") && pole2String.equals("")) {}
+            else if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
+            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+            else {
                 pole1String = pole2String + "+";
                 textLabel1.setText(pole1String);
                 pole1Double = Double.parseDouble(pole2String);
@@ -391,62 +353,12 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonSubtractionPusher () {
-            if (pole1String.contains("-") && pole2String.equals("")) {
-
-            } else if (pole1String.contains("-") && !pole2String.equals("")) {
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double - pole2Double;
-                pole2Double = pole1Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
-            } else if (pole1String.contains("+") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "-";
-                    textLabel1.setText(pole1String);
-                }
-            } else {
+            if (pole1String.contains("-") && pole2String.equals("")) {}
+            else if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
+            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+            else {
                 pole1String = pole2String + "-";
                 textLabel1.setText(pole1String);
                 pole1Double = Double.parseDouble(pole2String);
@@ -456,62 +368,12 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonMultiplicationPusher () {
-            if (pole1String.contains("\u00D7") && pole2String.equals("")) {
-
-            } else if (pole1String.contains("\u00D7") && !pole2String.equals("")) {
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double * pole2Double;
-                pole2Double = pole1Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
-            } else if (pole1String.contains("+") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("-") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00F7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00D7";
-                    textLabel1.setText(pole1String);
-                }
-            } else {
+            if (pole1String.contains("\u00D7") && pole2String.equals("")) {}
+            else if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
+            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+            else {
                 pole1String = pole2String + "\u00D7";
                 textLabel1.setText(pole1String);
                 pole1Double = Double.parseDouble(pole2String);
@@ -521,62 +383,12 @@ public class CalculatorWindow extends JFrame {
         }
 
         public void buttonDivisionPusher () {
-            if (pole1String.contains("\u00F7") && pole2String.equals("")) {
-
-            } else if (pole1String.contains("\u00F7") && !pole2String.equals("")) {
-                pole2Double = Double.parseDouble(pole2String);
-                pole1Double = pole1Double / pole2Double;
-                pole2Double = pole1Double;
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole2String = pole1String;
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                    textLabel2.setText(pole2String);
-                    pole2String = "";
-                }
-            } else if (pole1String.contains("+") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("-") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                }
-            } else if (pole1String.contains("\u00D7") && pole2String.equals("")) {
-                if (pole1Double % 1 == 0) {
-                    pole1Integer = (int) pole1Double;
-                    pole1String = Integer.toString(pole1Integer);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                } else {
-                    pole1String = Double.toString(pole1Double);
-                    pole1String = pole1String + "\u00F7";
-                    textLabel1.setText(pole1String);
-                }
-            } else {
+            if (pole1String.contains("\u00F7") && pole2String.equals("")) {}
+            else if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
+            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+            else {
                 pole1String = pole2String + "\u00F7";
                 textLabel1.setText(pole1String);
                 pole1Double = Double.parseDouble(pole2String);
