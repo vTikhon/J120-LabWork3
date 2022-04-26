@@ -244,94 +244,34 @@ public class CalculatorWindow extends JFrame {
     public class CalculatorAction implements ActionListener {
         public void actionPerformed(ActionEvent userAction) {
             if (userAction.getSource() == buttonZero) {
-                if (pole2String == "0") {
-                    pole2String = "0";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "0";
-                    textLabel2.setText(pole2String);
-                }
+                buttonZeroPusher();
             }
             if (userAction.getSource() == buttonOne) {
-                if (pole2String == "0") {
-                    pole2String = "1";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "1";
-                    textLabel2.setText(pole2String);
-                }
+                buttonOnePusher();
             }
             if (userAction.getSource() == buttonTwo) {
-                if (pole2String == "0") {
-                    pole2String = "2";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "2";
-                    textLabel2.setText(pole2String);
-                }
+                buttonTwoPusher();
             }
             if (userAction.getSource() == buttonThree) {
-                if (pole2String == "0") {
-                    pole2String = "3";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "3";
-                    textLabel2.setText(pole2String);
-                }
+                buttonThreePusher();
             }
             if (userAction.getSource() == buttonFour) {
-                if (pole2String == "0") {
-                    pole2String = "4";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "4";
-                    textLabel2.setText(pole2String);
-                }
+                buttonFourPusher();
             }
             if (userAction.getSource() == buttonFive) {
-                if (pole2String == "0") {
-                    pole2String = "5";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "5";
-                    textLabel2.setText(pole2String);
-                }
+                buttonFivePusher();
             }
             if (userAction.getSource() == buttonSix) {
-                if (pole2String == "0") {
-                    pole2String = "6";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "6";
-                    textLabel2.setText(pole2String);
-                }
+                buttonSixPusher();
             }
             if (userAction.getSource() == buttonSeven) {
-                if (pole2String == "0") {
-                    pole2String = "7";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "7";
-                    textLabel2.setText(pole2String);
-                }
+                buttonSevenPusher();
             }
             if (userAction.getSource() == buttonEight) {
-                if (pole2String == "0") {
-                    pole2String = "8";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "8";
-                    textLabel2.setText(pole2String);
-                }
+                buttonEightPusher();
             }
             if (userAction.getSource() == buttonNine) {
-                if (pole2String == "0") {
-                    pole2String = "9";
-                    textLabel2.setText(pole2String);
-                } else {
-                    pole2String = pole2String + "9";
-                    textLabel2.setText(pole2String);
-                }
+                buttonNinePusher();
             }
             if (userAction.getSource() == buttonPoint) {
                 if (pole2String.contains(".")) {
@@ -685,6 +625,109 @@ public class CalculatorWindow extends JFrame {
                 textLabel1.setText(pole1String);
                 textLabel2.setText(pole2String);
                 pole2Double = Double.parseDouble(pole2String);
+            }
+        }
+
+
+
+
+        public void buttonZeroPusher () {
+            if (pole2String == "0") {
+                pole2String = "0";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "0";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonOnePusher () {
+            if (pole2String == "0") {
+                pole2String = "1";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "1";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonTwoPusher () {
+            if (pole2String == "0") {
+                pole2String = "2";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "2";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonThreePusher () {
+            if (pole2String == "0") {
+                pole2String = "3";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "3";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonFourPusher () {
+            if (pole2String == "0") {
+                pole2String = "4";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "4";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonFivePusher () {
+            if (pole2String == "0") {
+                pole2String = "5";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "5";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonSixPusher () {
+            if (pole2String == "0") {
+                pole2String = "6";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "6";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonSevenPusher () {
+            if (pole2String == "0") {
+                pole2String = "7";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "7";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonEightPusher () {
+            if (pole2String == "0") {
+                pole2String = "8";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "8";
+                textLabel2.setText(pole2String);
+            }
+        }
+
+        public void buttonNinePusher () {
+            if (pole2String == "0") {
+                pole2String = "9";
+                textLabel2.setText(pole2String);
+            } else {
+                pole2String = pole2String + "9";
+                textLabel2.setText(pole2String);
             }
         }
     }
