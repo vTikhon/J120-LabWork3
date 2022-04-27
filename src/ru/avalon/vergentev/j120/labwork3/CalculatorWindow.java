@@ -73,6 +73,7 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         GridBagConstraints buttonCleanPosition = new GridBagConstraints();
         setButtonInterface(buttonClean,  225, 225, 225,
                 buttonCleanPosition,  1,  1, 2 , 4, 1, 1);
+        buttonClean.addActionListener(this);
         buttonClean.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree3Position = new GridBagConstraints();
@@ -277,11 +278,12 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         }
     }
     
-    public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char action) {
-        if (pole1String.contains(symbol) && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol(symbol, action);}
+    public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
+        if (pole1String.contains(symbol) && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol(symbol, operation);}
         else if (pole1String.contains(symbol2) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
         else if (pole1String.contains(symbol3) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
         else if (pole1String.contains(symbol4) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
+        else if (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
         else {
             pole1String = pole2String + symbol;
             textLabel1.setText(pole1String);
@@ -323,16 +325,17 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
     }
 
     public void algorithmIfEqualButtonIsPushed () {
-        if (pole1String.contains("+")) {equating('+');}
-        if (pole1String.contains("-")) {equating('-');}
-        if (pole1String.contains("\u00D7")) {equating('*');}
-        if (pole1String.contains("\u00F7")) {equating('/');}
+        if (pole1String.contains("+")) {calculating('+');}
+        else if (pole1String.contains("-")) {calculating('-');}
+        else if (pole1String.contains("\u00D7")) {calculating('*');}
+        else if (pole1String.contains("\u00F7")) {calculating('/');}
     }
-    public void equating (char action) {
+
+    public void calculating (char operation) {
         pole1String = pole1String + pole2String;
         textLabel1.setText(pole1String + "=");
         pole2Double = Double.parseDouble(pole2String);
-        switch (action) {
+        switch (operation) {
             case '+' -> pole1Double = pole1Double + pole2Double;
             case '-' -> pole1Double = pole1Double - pole2Double;
             case '*' -> pole1Double = pole1Double * pole2Double;
@@ -358,9 +361,9 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         pole1String = pole1String + symbol;
         textLabel1.setText(pole1String);
     }
-    public void correctLabel1IfItTheSameSymbol (String symbol, char action) {
+    public void correctLabel1IfItTheSameSymbol (String symbol, char operation) {
         pole2Double = Double.parseDouble(pole2String);
-        switch (action) {
+        switch (operation) {
             case '+' -> pole1Double = pole1Double + pole2Double;
             case '-' -> pole1Double = pole1Double - pole2Double;
             case '*' -> pole1Double = pole1Double * pole2Double;
