@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class CalculatorWindow extends JFrame {
+public class CalculatorWindow extends JFrame implements ActionListener, ButtonsForCalculator {
     JButton buttonFree1 = new JButton("");
     JButton buttonFree2 = new JButton("");
     JButton buttonFree3 = new JButton("");
@@ -36,9 +36,9 @@ public class CalculatorWindow extends JFrame {
     double pole2Double;
     int pole1Integer;
     int pole2Integer;
-    CalculatorAction calculation = new CalculatorAction();
 
 
+    //CONSTRUCTORS
     public CalculatorWindow() {
         super("Tikhon's calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -46,7 +46,7 @@ public class CalculatorWindow extends JFrame {
         getContentPane().setBackground(new Color(186,186,186));
         setResizable(true);
         setLocationRelativeTo(null);
-        setLayout(new GridBagLayout());
+        setLayout(new GridBagLayout());        
 
         GridBagConstraints textLabel1Position = new GridBagConstraints();
         setLabelInterface(textLabel1,  40, 40, 40, 0, 200, 0 ,
@@ -98,109 +98,111 @@ public class CalculatorWindow extends JFrame {
         GridBagConstraints buttonDivisionPosition = new GridBagConstraints();
         setButtonInterface(buttonDivision,  225, 225, 225,
                 buttonDivisionPosition,  1,  1, 3 , 5, 1, 1);
-        buttonDivision.addActionListener(calculation);
+        buttonDivision.addActionListener(this);
         buttonDivision.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonSevenPosition = new GridBagConstraints();
         setButtonInterface(buttonSeven,  255, 255, 255,
                 buttonSevenPosition,  1,  1, 0 , 6, 1, 1);
-        buttonSeven.addActionListener(calculation);
+        buttonSeven.addActionListener(this);
         buttonSeven.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonEightPosition = new GridBagConstraints();
         setButtonInterface(buttonEight,  255, 255, 255,
                 buttonEightPosition,  1,  1, 1 , 6, 1, 1);
-        buttonEight.addActionListener(calculation);
+        buttonEight.addActionListener(this);
         buttonEight.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonNinePosition = new GridBagConstraints();
         setButtonInterface(buttonNine,  255, 255, 255,
                 buttonNinePosition,  1,  1, 2 , 6, 1, 1);
-        buttonNine.addActionListener(calculation);
+        buttonNine.addActionListener(this);
         buttonNine.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonMultiplicationPosition = new GridBagConstraints();
         setButtonInterface(buttonMultiplication,  225, 225, 225,
                 buttonMultiplicationPosition,  1,  1, 3 , 6, 1, 1);
-        buttonMultiplication.addActionListener(calculation);
+        buttonMultiplication.addActionListener(this);
         buttonMultiplication.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonFourPosition = new GridBagConstraints();
         setButtonInterface(buttonFour,  255, 255, 255,
                 buttonFourPosition,  1,  1, 0 , 7, 1, 1);
-        buttonFour.addActionListener(calculation);
+        buttonFour.addActionListener(this);
         buttonFour.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonFivePosition = new GridBagConstraints();
         setButtonInterface(buttonFive,  255, 255, 255,
                 buttonFivePosition,  1,  1, 1 , 7, 1, 1);
-        buttonFive.addActionListener(calculation);
+        buttonFive.addActionListener(this);
         buttonFive.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonSixPosition = new GridBagConstraints();
         setButtonInterface(buttonSix,  255, 255, 255,
                 buttonSixPosition,  1,  1, 2 , 7, 1, 1);
-        buttonSix.addActionListener(calculation);
+        buttonSix.addActionListener(this);
         buttonSix.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonSubtractionPosition = new GridBagConstraints();
         setButtonInterface(buttonSubtraction,  225, 225, 225,
                 buttonSubtractionPosition,  1,  1, 3 , 7, 1, 1);
-        buttonSubtraction.addActionListener(calculation);
+        buttonSubtraction.addActionListener(this);
         buttonSubtraction.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
 
         GridBagConstraints buttonOnePosition = new GridBagConstraints();
         setButtonInterface(buttonOne,  255, 255, 255,
                 buttonOnePosition,  1,  1, 0 , 8, 1, 1);
-        buttonOne.addActionListener(calculation);
+        buttonOne.addActionListener(this);
         buttonOne.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
         GridBagConstraints buttonTwoPosition = new GridBagConstraints();
         setButtonInterface(buttonTwo,  255, 255, 255,
                 buttonTwoPosition,  1,  1, 1 , 8, 1, 1);
-        buttonTwo.addActionListener(calculation);
+        buttonTwo.addActionListener(this);
         buttonTwo.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonThreePosition = new GridBagConstraints();
         setButtonInterface(buttonThree,  255, 255, 255,
                 buttonThreePosition,  1,  1, 2 , 8, 1, 1);
-        buttonThree.addActionListener(calculation);
+        buttonThree.addActionListener(this);
         buttonThree.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
         GridBagConstraints buttonAdditionPosition = new GridBagConstraints();
         setButtonInterface(buttonAddition,  225, 225, 225,
                 buttonAdditionPosition,  1,  1, 3 , 8, 1, 1);
-        buttonAddition.addActionListener(calculation);
+        buttonAddition.addActionListener(this);
         buttonAddition.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonPlusMinusPosition = new GridBagConstraints();
         setButtonInterface(buttonPlusMinus,  255, 255, 255,
                 buttonPlusMinusPosition,  1,  1, 0 , 9, 1, 1);
-        buttonPlusMinus.addActionListener(calculation);
+        buttonPlusMinus.addActionListener(this);
         buttonPlusMinus.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonZeroPosition = new GridBagConstraints();
         setButtonInterface(buttonZero,  255, 255, 255,
                 buttonZeroPosition,  1,  1, 1 , 9, 1, 1);
-        buttonZero.addActionListener(calculation);
+        buttonZero.addActionListener(this);
         buttonZero.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonPointPosition = new GridBagConstraints();
         setButtonInterface(buttonPoint,  255, 255, 255,
                 buttonPointPosition,  1,  1, 2 , 9, 1, 1);
-        buttonPoint.addActionListener(calculation);
+        buttonPoint.addActionListener(this);
         buttonPoint.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonEqualsPosition = new GridBagConstraints();
         setButtonInterface(buttonEquals, 225,225, 225,
                 buttonEqualsPosition,  1,  1, 3 , 9, 1, 1);
-        buttonEquals.addActionListener(calculation);
+        buttonEquals.addActionListener(this);
         buttonEquals.setFont(new Font("Segoe UI", Font.PLAIN, 27));
     }
 
+    //METHODS
+    //метод определ€ющий внешний вид кнопки
     public void setButtonInterface (JButton button,
                                     int red, int green, int blue,
                                     GridBagConstraints buttonPosition,
@@ -218,6 +220,7 @@ public class CalculatorWindow extends JFrame {
         add(button, buttonPosition);
     }
 
+    //метод определ€ющий внешний вид текстового лэйбла
     public void setLabelInterface (JLabel label,
                                    int redFore, int greenFore, int blueFore,
                                     int redBack, int greenBack, int blueBack,
@@ -240,190 +243,191 @@ public class CalculatorWindow extends JFrame {
         add(label, labelPosition);
     }
 
-
-    public class CalculatorAction implements ActionListener, ButtonsForCalculator {
-        public void actionPerformed(ActionEvent userAction) {
-            switch (userAction.getActionCommand()) {
-                case ZERO_BUTTON -> buttonZeroPusher();
-                case ONE_BUTTON -> buttonOnePusher();
-                case TWO_BUTTON -> buttonTwoPusher();
-                case THREE_BUTTON -> buttonThreePusher();
-                case FOUR_BUTTON -> buttonFourPusher();
-                case FIVE_BUTTON -> buttonFivePusher();
-                case SIX_BUTTON -> buttonSixPusher();
-                case SEVEN_BUTTON -> buttonSevenPusher();
-                case EIGHT_BUTTON -> buttonEightPusher();
-                case NINE_BUTTON -> buttonNinePusher();
-                case ADDITION_BUTTON -> buttonAdditionPusher();
-                case SUBTRACTION_BUTTON -> buttonSubtractionPusher();
-                case MULTIPLICATION_BUTTON -> buttonMultiplicationPusher();
-                case DIVISION_BUTTON -> buttonDivisionPusher();
-                case PLUSMINUS_BUTTON -> buttonPlusMinusPusher();
-                case EQUALS_BUTTON -> buttonEqualsPusher();
-                case POINT_BUTTON -> buttonPointPusher();
-                case CLEAN_BUTTON -> buttonCleanPusher();
-            }
+    @Override
+    public void actionPerformed(ActionEvent userAction) {
+        switch (userAction.getActionCommand()) {
+            case ZERO_BUTTON -> buttonZeroPusher();
+            case ONE_BUTTON -> buttonOnePusher();
+            case TWO_BUTTON -> buttonTwoPusher();
+            case THREE_BUTTON -> buttonThreePusher();
+            case FOUR_BUTTON -> buttonFourPusher();
+            case FIVE_BUTTON -> buttonFivePusher();
+            case SIX_BUTTON -> buttonSixPusher();
+            case SEVEN_BUTTON -> buttonSevenPusher();
+            case EIGHT_BUTTON -> buttonEightPusher();
+            case NINE_BUTTON -> buttonNinePusher();
+            case ADDITION_BUTTON -> buttonAdditionPusher();
+            case SUBTRACTION_BUTTON -> buttonSubtractionPusher();
+            case MULTIPLICATION_BUTTON -> buttonMultiplicationPusher();
+            case DIVISION_BUTTON -> buttonDivisionPusher();
+            case PLUSMINUS_BUTTON -> buttonPlusMinusPusher();
+            case EQUALS_BUTTON -> buttonEqualsPusher();
+            case POINT_BUTTON -> buttonPointPusher();
+            case CLEAN_BUTTON -> buttonCleanPusher();
         }
+    }
 
-        public void algorithmIfDigitalButtonIsPushed (String digitButton) {
-            if (pole2String.equals("0")) {
-                pole2String = digitButton;
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + digitButton;
-                textLabel2.setText(pole2String);
-            }
+    public void buttonZeroPusher () {algorithmIfDigitalButtonIsPushed("0");}
+    public void buttonOnePusher () {algorithmIfDigitalButtonIsPushed("1");}
+    public void buttonTwoPusher () {algorithmIfDigitalButtonIsPushed("2");}
+    public void buttonThreePusher () {algorithmIfDigitalButtonIsPushed("3");}
+    public void buttonFourPusher () {algorithmIfDigitalButtonIsPushed("4");}
+    public void buttonFivePusher () {algorithmIfDigitalButtonIsPushed("5");}
+    public void buttonSixPusher () {algorithmIfDigitalButtonIsPushed("6");}
+    public void buttonSevenPusher () {algorithmIfDigitalButtonIsPushed("7");}
+    public void buttonEightPusher () {algorithmIfDigitalButtonIsPushed("8");}
+    public void buttonNinePusher () {algorithmIfDigitalButtonIsPushed("9");}
+    public void algorithmIfDigitalButtonIsPushed (String digitButton) {
+        if (pole2String.equals("0")) {
+            pole2String = digitButton;
+            textLabel2.setText(pole2String);
+        } else {
+            pole2String = pole2String + digitButton;
+            textLabel2.setText(pole2String);
         }
-        public void buttonZeroPusher () {algorithmIfDigitalButtonIsPushed("0");}
-        public void buttonOnePusher () {algorithmIfDigitalButtonIsPushed("1");}
-        public void buttonTwoPusher () {algorithmIfDigitalButtonIsPushed("2");}
-        public void buttonThreePusher () {algorithmIfDigitalButtonIsPushed("3");}
-        public void buttonFourPusher () {algorithmIfDigitalButtonIsPushed("4");}
-        public void buttonFivePusher () {algorithmIfDigitalButtonIsPushed("5");}
-        public void buttonSixPusher () {algorithmIfDigitalButtonIsPushed("6");}
-        public void buttonSevenPusher () {algorithmIfDigitalButtonIsPushed("7");}
-        public void buttonEightPusher () {algorithmIfDigitalButtonIsPushed("8");}
-        public void buttonNinePusher () {algorithmIfDigitalButtonIsPushed("9");}
+    }
 
-        public void correctLabel1IfItHasAnotherSymbol (String symbol) {
-            if (pole1Double % 1 == 0) {
-                pole1Integer = (int) pole1Double;
-                pole1String = Integer.toString(pole1Integer);
-            } else {
-                pole1String = Double.toString(pole1Double);
-            }
-            pole1String = pole1String + symbol;
+    public void correctLabel1IfItHasAnotherSymbol (String symbol) {
+        if (pole1Double % 1 == 0) {
+            pole1Integer = (int) pole1Double;
+            pole1String = Integer.toString(pole1Integer);
+        } else {
+            pole1String = Double.toString(pole1Double);
+        }
+        pole1String = pole1String + symbol;
+        textLabel1.setText(pole1String);
+    }
+    public void correctLabel1IfItTheSameSymbol (String symbol, char action) {
+        pole2Double = Double.parseDouble(pole2String);
+        switch (action) {
+            case '+' -> pole1Double = pole1Double + pole2Double;
+            case '-' -> pole1Double = pole1Double - pole2Double;
+            case '*' -> pole1Double = pole1Double * pole2Double;
+            case '/' -> pole1Double = pole1Double / pole2Double;
+        }
+        pole2Double = pole1Double;
+        if (pole1Double % 1 == 0) {
+            pole1Integer = (int) pole1Double;
+            pole1String = Integer.toString(pole1Integer);
+        } else {
+            pole1String = Double.toString(pole1Double);
+        }
+        pole2String = pole1String;
+        pole1String = pole1String + symbol;
+        textLabel1.setText(pole1String);
+        textLabel2.setText(pole2String);
+        pole2String = "";
+    }
+    public void buttonAdditionPusher () {
+        if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
+        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+        else {
+            pole1String = pole2String + "+";
             textLabel1.setText(pole1String);
-        }
-        public void correctLabel1IfItTheSameSymbol (String symbol, char action) {
-            pole2Double = Double.parseDouble(pole2String);
-            switch (action) {
-                case '+' -> pole1Double = pole1Double + pole2Double;
-                case '-' -> pole1Double = pole1Double - pole2Double;
-                case '*' -> pole1Double = pole1Double * pole2Double;
-                case '/' -> pole1Double = pole1Double / pole2Double;
-            }
-            pole2Double = pole1Double;
-            if (pole1Double % 1 == 0) {
-                pole1Integer = (int) pole1Double;
-                pole1String = Integer.toString(pole1Integer);
-            } else {
-                pole1String = Double.toString(pole1Double);
-            }
-            pole2String = pole1String;
-            pole1String = pole1String + symbol;
-            textLabel1.setText(pole1String);
+            pole1Double = Double.parseDouble(pole2String);
             textLabel2.setText(pole2String);
             pole2String = "";
         }
-        public void buttonAdditionPusher () {
-            if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
-            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
-            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
-            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
-            else {
-                pole1String = pole2String + "+";
-                textLabel1.setText(pole1String);
-                pole1Double = Double.parseDouble(pole2String);
-                textLabel2.setText(pole2String);
-                pole2String = "";
-            }
-        }
-        public void buttonSubtractionPusher () {
-            if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
-            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-            else {
-                pole1String = pole2String + "-";
-                textLabel1.setText(pole1String);
-                pole1Double = Double.parseDouble(pole2String);
-                textLabel2.setText(pole2String);
-                pole2String = "";
-            }
-        }
-        public void buttonMultiplicationPusher () {
-            if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
-            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-            else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-            else {
-                pole1String = pole2String + "\u00D7";
-                textLabel1.setText(pole1String);
-                pole1Double = Double.parseDouble(pole2String);
-                textLabel2.setText(pole2String);
-                pole2String = "";
-            }
-        }
-        public void buttonDivisionPusher () {
-            if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
-            else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-            else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-            else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-            else {
-                pole1String = pole2String + "\u00F7";
-                textLabel1.setText(pole1String);
-                pole1Double = Double.parseDouble(pole2String);
-                textLabel2.setText(pole2String);
-                pole2String = "";
-            }
-        }
-        public void buttonEqualsPusher () {
-            if (pole1String.contains("+")) {equating('+');}
-            if (pole1String.contains("-")) {equating('-');}
-            if (pole1String.contains("\u00D7")) {equating('*');}
-            if (pole1String.contains("\u00F7")) {equating('/');}
-        }
-        public void equating (char action) {
-            pole1String = pole1String + pole2String;
-            textLabel1.setText(pole1String + "=");
-            pole2Double = Double.parseDouble(pole2String);
-            switch (action) {
-                case '+' -> pole1Double = pole1Double + pole2Double;
-                case '-' -> pole1Double = pole1Double - pole2Double;
-                case '*' -> pole1Double = pole1Double * pole2Double;
-                case '/' -> pole1Double = pole1Double / pole2Double;
-            }
-            if (pole1Double % 1 == 0) {
-                pole1Integer = (int) pole1Double;
-                pole2String = Integer.toString(pole1Integer);
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = Double.toString(pole1Double);
-                textLabel2.setText(pole2String);
-            }
-        }
-
-        public void buttonPlusMinusPusher () {
-            pole2Double = Double.parseDouble(pole2String);
-            if (pole2Double % 1 == 0) {
-                pole2Integer = (int) pole2Double;
-                pole2Integer = -1 * pole2Integer;
-                pole2String = Integer.toString(pole2Integer);
-                textLabel2.setText(pole2String);
-            } else {
-                pole2Double = -1 * pole2Double;
-                pole2String = Double.toString(pole2Double);
-                textLabel2.setText(pole2String);
-            }
-        }
-
-        public void buttonCleanPusher () {
-            pole1String = "";
-            pole2String = "0";
+    }
+    public void buttonSubtractionPusher () {
+        if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
+        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
+        else {
+            pole1String = pole2String + "-";
             textLabel1.setText(pole1String);
+            pole1Double = Double.parseDouble(pole2String);
             textLabel2.setText(pole2String);
-            pole2Double = Double.parseDouble(pole2String);
-        }
-
-        public void buttonPointPusher () {
-            if (pole2String.contains(".")) {
-                textLabel2.setText(pole2String);
-            } else {
-                pole2String = pole2String + ".";
-                textLabel2.setText(pole2String);
-            }
+            pole2String = "";
         }
     }
+    public void buttonMultiplicationPusher () {
+        if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
+        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
+        else {
+            pole1String = pole2String + "\u00D7";
+            textLabel1.setText(pole1String);
+            pole1Double = Double.parseDouble(pole2String);
+            textLabel2.setText(pole2String);
+            pole2String = "";
+        }
+    }
+    public void buttonDivisionPusher () {
+        if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
+        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
+        else {
+            pole1String = pole2String + "\u00F7";
+            textLabel1.setText(pole1String);
+            pole1Double = Double.parseDouble(pole2String);
+            textLabel2.setText(pole2String);
+            pole2String = "";
+        }
+    }
+    public void buttonEqualsPusher () {
+        if (pole1String.contains("+")) {equating('+');}
+        if (pole1String.contains("-")) {equating('-');}
+        if (pole1String.contains("\u00D7")) {equating('*');}
+        if (pole1String.contains("\u00F7")) {equating('/');}
+    }
+    public void equating (char action) {
+        pole1String = pole1String + pole2String;
+        textLabel1.setText(pole1String + "=");
+        pole2Double = Double.parseDouble(pole2String);
+        switch (action) {
+            case '+' -> pole1Double = pole1Double + pole2Double;
+            case '-' -> pole1Double = pole1Double - pole2Double;
+            case '*' -> pole1Double = pole1Double * pole2Double;
+            case '/' -> pole1Double = pole1Double / pole2Double;
+        }
+        if (pole1Double % 1 == 0) {
+            pole1Integer = (int) pole1Double;
+            pole2String = Integer.toString(pole1Integer);
+            textLabel2.setText(pole2String);
+        } else {
+            pole2String = Double.toString(pole1Double);
+            textLabel2.setText(pole2String);
+        }
+    }
+
+    public void buttonPlusMinusPusher () {
+        pole2Double = Double.parseDouble(pole2String);
+        if (pole2Double % 1 == 0) {
+            pole2Integer = (int) pole2Double;
+            pole2Integer = -1 * pole2Integer;
+            pole2String = Integer.toString(pole2Integer);
+            textLabel2.setText(pole2String);
+        } else {
+            pole2Double = -1 * pole2Double;
+            pole2String = Double.toString(pole2Double);
+            textLabel2.setText(pole2String);
+        }
+    }
+
+    public void buttonCleanPusher () {
+        pole1String = "";
+        pole2String = "0";
+        textLabel1.setText(pole1String);
+        textLabel2.setText(pole2String);
+        pole2Double = Double.parseDouble(pole2String);
+    }
+
+    public void buttonPointPusher () {
+        if (pole2String.contains(".")) {
+            textLabel2.setText(pole2String);
+        } else {
+            pole2String = pole2String + ".";
+            textLabel2.setText(pole2String);
+        }
+    }
+
+
+
 }
 
