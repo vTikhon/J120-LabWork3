@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class CalculatorWindow extends JFrame implements ActionListener, ButtonsForCalculator {
+public class Calculator extends JFrame implements ActionListener, ButtonsForCalculator {
     JButton buttonFree1 = new JButton("");
     JButton buttonFree2 = new JButton("");
     JButton buttonFree3 = new JButton("");
@@ -39,7 +39,7 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
 
 
     //CONSTRUCTORS
-    public CalculatorWindow() {
+    public Calculator() {
         super("Tikhon's calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(340, 550);
@@ -341,23 +341,12 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
             case '*' -> pole1Double = pole1Double * pole2Double;
             case '/' -> pole1Double = pole1Double / pole2Double;
         }
-        if (pole1Double % 1 == 0) {
-            pole1Integer = (int) pole1Double;
-            pole2String = Integer.toString(pole1Integer);
-            textLabel2.setText(pole2String);
-        } else {
-            pole2String = Double.toString(pole1Double);
-            textLabel2.setText(pole2String);
-        }
+        viewFormatChecker();
+        textLabel2.setText(pole2String);
     }
 
     public void correctLabel1IfItHasAnotherSymbol (String symbol) {
-        if (pole1Double % 1 == 0) {
-            pole1Integer = (int) pole1Double;
-            pole1String = Integer.toString(pole1Integer);
-        } else {
-            pole1String = Double.toString(pole1Double);
-        }
+        viewFormatChecker();
         pole1String = pole1String + symbol;
         textLabel1.setText(pole1String);
     }
@@ -381,6 +370,15 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         textLabel1.setText(pole1String);
         textLabel2.setText(pole2String);
         pole2String = "";
+    }
+
+    public void viewFormatChecker () {
+        if (pole1Double % 1 == 0) {
+            pole1Integer = (int) pole1Double;
+            pole2String = Integer.toString(pole1Integer);
+        } else {
+            pole2String = Double.toString(pole1Double);
+        }
     }
 }
 
