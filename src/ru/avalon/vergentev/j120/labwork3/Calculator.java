@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Calculator extends JFrame implements ActionListener, ButtonsForCalculator {
+public class Calculator extends JFrame implements ActionListener {
     JButton buttonFree1 = new JButton("");
     JButton buttonFree2 = new JButton("");
     JButton buttonFree3 = new JButton("");
@@ -48,13 +48,13 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         GridBagConstraints textLabel1Position = new GridBagConstraints();
         setLabelInterface(textLabel1,  40, 40, 40, 0, 200, 0 ,
                 textLabel1Position,  1,  1, 0,  0,  1,  4, 0, 40);
-        textLabel1.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 200)));
+//        textLabel1.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 200)));
         textLabel1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 
         GridBagConstraints textLabel2Position = new GridBagConstraints();
         setLabelInterface(textLabel2,  0, 0, 0, 200, 0, 0 ,
                 textLabel2Position,  1,  1, 0,  1,  2,  4, 0, 60);
-        textLabel2.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
+//        textLabel2.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
         textLabel2.setFont(new Font("Segoe UI", Font.BOLD, 47));
 
         GridBagConstraints buttonFree1Position = new GridBagConstraints();
@@ -70,7 +70,6 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         GridBagConstraints buttonCleanPosition = new GridBagConstraints();
         setButtonInterface(buttonClean,  225, 225, 225,
                 buttonCleanPosition,  1,  1, 2 , 4, 1, 1);
-        buttonClean.addActionListener(this);
         buttonClean.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree3Position = new GridBagConstraints();
@@ -96,106 +95,89 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         GridBagConstraints buttonDivisionPosition = new GridBagConstraints();
         setButtonInterface(buttonDivision,  225, 225, 225,
                 buttonDivisionPosition,  1,  1, 3 , 5, 1, 1);
-        buttonDivision.addActionListener(this);
         buttonDivision.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonSevenPosition = new GridBagConstraints();
         setButtonInterface(buttonSeven,  255, 255, 255,
                 buttonSevenPosition,  1,  1, 0 , 6, 1, 1);
-        buttonSeven.addActionListener(this);
         buttonSeven.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonEightPosition = new GridBagConstraints();
         setButtonInterface(buttonEight,  255, 255, 255,
                 buttonEightPosition,  1,  1, 1 , 6, 1, 1);
-        buttonEight.addActionListener(this);
         buttonEight.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonNinePosition = new GridBagConstraints();
         setButtonInterface(buttonNine,  255, 255, 255,
                 buttonNinePosition,  1,  1, 2 , 6, 1, 1);
-        buttonNine.addActionListener(this);
         buttonNine.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonMultiplicationPosition = new GridBagConstraints();
         setButtonInterface(buttonMultiplication,  225, 225, 225,
                 buttonMultiplicationPosition,  1,  1, 3 , 6, 1, 1);
-        buttonMultiplication.addActionListener(this);
         buttonMultiplication.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonFourPosition = new GridBagConstraints();
         setButtonInterface(buttonFour,  255, 255, 255,
                 buttonFourPosition,  1,  1, 0 , 7, 1, 1);
-        buttonFour.addActionListener(this);
         buttonFour.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonFivePosition = new GridBagConstraints();
         setButtonInterface(buttonFive,  255, 255, 255,
                 buttonFivePosition,  1,  1, 1 , 7, 1, 1);
-        buttonFive.addActionListener(this);
         buttonFive.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonSixPosition = new GridBagConstraints();
         setButtonInterface(buttonSix,  255, 255, 255,
                 buttonSixPosition,  1,  1, 2 , 7, 1, 1);
-        buttonSix.addActionListener(this);
         buttonSix.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonSubtractionPosition = new GridBagConstraints();
         setButtonInterface(buttonSubtraction,  225, 225, 225,
                 buttonSubtractionPosition,  1,  1, 3 , 7, 1, 1);
-        buttonSubtraction.addActionListener(this);
         buttonSubtraction.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
 
         GridBagConstraints buttonOnePosition = new GridBagConstraints();
         setButtonInterface(buttonOne,  255, 255, 255,
                 buttonOnePosition,  1,  1, 0 , 8, 1, 1);
-        buttonOne.addActionListener(this);
         buttonOne.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
         GridBagConstraints buttonTwoPosition = new GridBagConstraints();
         setButtonInterface(buttonTwo,  255, 255, 255,
                 buttonTwoPosition,  1,  1, 1 , 8, 1, 1);
-        buttonTwo.addActionListener(this);
         buttonTwo.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonThreePosition = new GridBagConstraints();
         setButtonInterface(buttonThree,  255, 255, 255,
                 buttonThreePosition,  1,  1, 2 , 8, 1, 1);
-        buttonThree.addActionListener(this);
         buttonThree.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
         GridBagConstraints buttonAdditionPosition = new GridBagConstraints();
         setButtonInterface(buttonAddition,  225, 225, 225,
                 buttonAdditionPosition,  1,  1, 3 , 8, 1, 1);
-        buttonAddition.addActionListener(this);
         buttonAddition.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
         GridBagConstraints buttonPlusMinusPosition = new GridBagConstraints();
         setButtonInterface(buttonPlusMinus,  255, 255, 255,
                 buttonPlusMinusPosition,  1,  1, 0 , 9, 1, 1);
-        buttonPlusMinus.addActionListener(this);
         buttonPlusMinus.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonZeroPosition = new GridBagConstraints();
         setButtonInterface(buttonZero,  255, 255, 255,
                 buttonZeroPosition,  1,  1, 1 , 9, 1, 1);
-        buttonZero.addActionListener(this);
         buttonZero.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonPointPosition = new GridBagConstraints();
         setButtonInterface(buttonPoint,  255, 255, 255,
                 buttonPointPosition,  1,  1, 2 , 9, 1, 1);
-        buttonPoint.addActionListener(this);
         buttonPoint.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonEqualsPosition = new GridBagConstraints();
         setButtonInterface(buttonEquals, 225,225, 225,
                 buttonEqualsPosition,  1,  1, 3 , 9, 1, 1);
-        buttonEquals.addActionListener(this);
         buttonEquals.setFont(new Font("Segoe UI", Font.PLAIN, 27));
     }
 
@@ -215,6 +197,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         buttonPosition.gridy = gridy;
         buttonPosition.gridheight = gridheight;
         buttonPosition.gridwidth = gridwidth;
+        button.addActionListener(this);
         add(button, buttonPosition);
     }
 
@@ -244,26 +227,24 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
     //функционал нажатий на кнопки
     @Override
     public void actionPerformed(ActionEvent userAction) {
-        switch (userAction.getActionCommand()) {
-            case ZERO_BUTTON -> algorithmIfDigitalButtonIsPushed("0");
-            case ONE_BUTTON -> algorithmIfDigitalButtonIsPushed("1");
-            case TWO_BUTTON -> algorithmIfDigitalButtonIsPushed("2");
-            case THREE_BUTTON -> algorithmIfDigitalButtonIsPushed("3");
-            case FOUR_BUTTON -> algorithmIfDigitalButtonIsPushed("4");
-            case FIVE_BUTTON -> algorithmIfDigitalButtonIsPushed("5");
-            case SIX_BUTTON -> algorithmIfDigitalButtonIsPushed("6");
-            case SEVEN_BUTTON -> algorithmIfDigitalButtonIsPushed("7");
-            case EIGHT_BUTTON -> algorithmIfDigitalButtonIsPushed("8");
-            case NINE_BUTTON -> algorithmIfDigitalButtonIsPushed("9");
-            case ADDITION_BUTTON -> algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');
-            case SUBTRACTION_BUTTON -> algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');
-            case MULTIPLICATION_BUTTON -> algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');
-            case DIVISION_BUTTON -> algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');
-            case PLUSMINUS_BUTTON -> algorithmIfPlusMinusButtonIsPushed();
-            case EQUALS_BUTTON -> algorithmIfEqualButtonIsPushed();
-            case POINT_BUTTON -> algorithmIfPointButtonIsPushed();
-            case CLEAN_BUTTON -> algorithmIfCleanButtonIsPushed();
-        }
+        if (userAction.getSource() == buttonZero) {algorithmIfDigitalButtonIsPushed("0");}
+        else if (userAction.getSource() == buttonOne) {algorithmIfDigitalButtonIsPushed("1");}
+        else if (userAction.getSource() == buttonTwo) {algorithmIfDigitalButtonIsPushed("2");}
+        else if (userAction.getSource() == buttonThree) {algorithmIfDigitalButtonIsPushed("3");}
+        else if (userAction.getSource() == buttonFour) {algorithmIfDigitalButtonIsPushed("4");}
+        else if (userAction.getSource() == buttonFive) {algorithmIfDigitalButtonIsPushed("5");}
+        else if (userAction.getSource() == buttonSix) {algorithmIfDigitalButtonIsPushed("6");}
+        else if (userAction.getSource() == buttonSeven) {algorithmIfDigitalButtonIsPushed("7");}
+        else if (userAction.getSource() == buttonEight) {algorithmIfDigitalButtonIsPushed("8");}
+        else if (userAction.getSource() == buttonNine) {algorithmIfDigitalButtonIsPushed("9");}
+        else if (userAction.getSource() == buttonAddition) {algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');}
+        else if (userAction.getSource() == buttonSubtraction) {algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');}
+        else if (userAction.getSource() == buttonMultiplication) {algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');}
+        else if (userAction.getSource() == buttonDivision) {algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');}
+        else if (userAction.getSource() == buttonPlusMinus) {algorithmIfPlusMinusButtonIsPushed();}
+        else if (userAction.getSource() == buttonEquals) {algorithmIfEqualButtonIsPushed();}
+        else if (userAction.getSource() == buttonPoint) {algorithmIfPointButtonIsPushed();}
+        else if (userAction.getSource() == buttonClean) {algorithmIfCleanButtonIsPushed();}
     }
 
     public void algorithmIfDigitalButtonIsPushed (String digitButton) {
