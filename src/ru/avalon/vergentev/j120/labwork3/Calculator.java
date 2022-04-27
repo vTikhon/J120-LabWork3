@@ -30,15 +30,12 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
     JButton buttonClean = new JButton("C");
     String pole1String = "";
     String pole2String = "0";
+    String pole2StringTemp;
     JLabel textLabel1 = new JLabel(pole1String, SwingConstants.RIGHT);
     JLabel textLabel2 = new JLabel(pole2String, SwingConstants.RIGHT);
-    double pole1Double;
-    double pole2Double;
-    int pole1Integer;
-    int pole2Integer;
+    double pole1Double, pole2Double;
+    int pole1Integer, pole2Integer;
 
-
-    //CONSTRUCTORS
     public Calculator() {
         super("Tikhon's calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -203,7 +200,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
     }
 
     //METHODS
-    //метод определ€ющий внешний вид кнопки
+    //метод определ€ющий внешний вид кнопки (дл€ конструктора)
     public void setButtonInterface (JButton button,
                                     int red, int green, int blue,
                                     GridBagConstraints buttonPosition,
@@ -221,7 +218,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         add(button, buttonPosition);
     }
 
-    //метод определ€ющий внешний вид текстового лэйбла
+    //метод определ€ющий внешний вид текстового лэйбла (дл€ конструктора)
     public void setLabelInterface (JLabel label,
                                    int redFore, int greenFore, int blueFore,
                                     int redBack, int greenBack, int blueBack,
@@ -244,6 +241,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         add(label, labelPosition);
     }
 
+    //функционал нажатий на кнопки
     @Override
     public void actionPerformed(ActionEvent userAction) {
         switch (userAction.getActionCommand()) {
@@ -271,11 +269,10 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
     public void algorithmIfDigitalButtonIsPushed (String digitButton) {
         if (pole2String.equals("0")) {
             pole2String = digitButton;
-            textLabel2.setText(pole2String);
         } else {
             pole2String = pole2String + digitButton;
-            textLabel2.setText(pole2String);
         }
+        textLabel2.setText(pole2String);
     }
     
     public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
@@ -289,6 +286,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
             textLabel1.setText(pole1String);
             pole1Double = Double.parseDouble(pole2String);
             textLabel2.setText(pole2String);
+            pole2StringTemp = pole2String;
             pole2String = "";
         }
     }
@@ -299,12 +297,11 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
             pole2Integer = (int) pole2Double;
             pole2Integer = -1 * pole2Integer;
             pole2String = Integer.toString(pole2Integer);
-            textLabel2.setText(pole2String);
         } else {
             pole2Double = -1 * pole2Double;
             pole2String = Double.toString(pole2Double);
-            textLabel2.setText(pole2String);
         }
+        textLabel2.setText(pole2String);
     }
 
     public void algorithmIfCleanButtonIsPushed () {
@@ -332,6 +329,9 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
     }
 
     public void calculating (char operation) {
+        if (pole2String == "") {
+            pole2String = pole2StringTemp;
+        }
         pole1String = pole1String + pole2String;
         textLabel1.setText(pole1String + "=");
         pole2Double = Double.parseDouble(pole2String);
@@ -341,12 +341,12 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
             case '*' -> pole1Double = pole1Double * pole2Double;
             case '/' -> pole1Double = pole1Double / pole2Double;
         }
-        viewFormatChecker();
+        doesTextHasPointOrNot();
         textLabel2.setText(pole2String);
     }
 
     public void correctLabel1IfItHasAnotherSymbol (String symbol) {
-        viewFormatChecker();
+        doesTextHasPointOrNot();
         pole1String = pole1String + symbol;
         textLabel1.setText(pole1String);
     }
@@ -372,7 +372,7 @@ public class Calculator extends JFrame implements ActionListener, ButtonsForCalc
         pole2String = "";
     }
 
-    public void viewFormatChecker () {
+    public void doesTextHasPointOrNot () {
         if (pole1Double % 1 == 0) {
             pole1Integer = (int) pole1Double;
             pole2String = Integer.toString(pole1Integer);
