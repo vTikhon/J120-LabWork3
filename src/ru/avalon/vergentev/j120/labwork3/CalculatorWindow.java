@@ -243,25 +243,6 @@ public class CalculatorWindow extends JFrame {
 
     public class CalculatorAction implements ActionListener, ButtonsForCalculator {
         public void actionPerformed(ActionEvent userAction) {
-            buttonZero.setActionCommand(ZERO_BUTTON);
-            buttonOne.setActionCommand(ONE_BUTTON);
-            buttonTwo.setActionCommand(TWO_BUTTON);
-            buttonThree.setActionCommand(THREE_BUTTON);
-            buttonFour.setActionCommand(FOUR_BUTTON);
-            buttonFive.setActionCommand(FIVE_BUTTON);
-            buttonSix.setActionCommand(SIX_BUTTON);
-            buttonSeven.setActionCommand(SEVEN_BUTTON);
-            buttonEight.setActionCommand(EIGHT_BUTTON);
-            buttonNine.setActionCommand(NINE_BUTTON);
-            buttonAddition.setActionCommand(ADDITION_BUTTON);
-            buttonSubtraction.setActionCommand(SUBTRACTION_BUTTON);
-            buttonMultiplication.setActionCommand(MULTIPLICATION_BUTTON);
-            buttonDivision.setActionCommand(DIVISION_BUTTON);
-            buttonPlusMinus.setActionCommand(PLUSMINUS_BUTTON);
-            buttonEquals.setActionCommand(EQUALS_BUTTON);
-            buttonPoint.setActionCommand(POINT_BUTTON);
-            buttonClean.setActionCommand(CLEAN_BUTTON);
-
             switch (userAction.getActionCommand()) {
                 case ZERO_BUTTON -> buttonZeroPusher();
                 case ONE_BUTTON -> buttonOnePusher();
