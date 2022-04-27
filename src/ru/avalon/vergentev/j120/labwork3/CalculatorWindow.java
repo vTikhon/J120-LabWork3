@@ -246,20 +246,20 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
     @Override
     public void actionPerformed(ActionEvent userAction) {
         switch (userAction.getActionCommand()) {
-            case ZERO_BUTTON -> buttonZeroPusher();
-            case ONE_BUTTON -> buttonOnePusher();
-            case TWO_BUTTON -> buttonTwoPusher();
-            case THREE_BUTTON -> buttonThreePusher();
-            case FOUR_BUTTON -> buttonFourPusher();
-            case FIVE_BUTTON -> buttonFivePusher();
-            case SIX_BUTTON -> buttonSixPusher();
-            case SEVEN_BUTTON -> buttonSevenPusher();
-            case EIGHT_BUTTON -> buttonEightPusher();
-            case NINE_BUTTON -> buttonNinePusher();
-            case ADDITION_BUTTON -> buttonAdditionPusher();
-            case SUBTRACTION_BUTTON -> buttonSubtractionPusher();
-            case MULTIPLICATION_BUTTON -> buttonMultiplicationPusher();
-            case DIVISION_BUTTON -> buttonDivisionPusher();
+            case ZERO_BUTTON -> algorithmIfDigitalButtonIsPushed("0");
+            case ONE_BUTTON -> algorithmIfDigitalButtonIsPushed("1");
+            case TWO_BUTTON -> algorithmIfDigitalButtonIsPushed("2");
+            case THREE_BUTTON -> algorithmIfDigitalButtonIsPushed("3");
+            case FOUR_BUTTON -> algorithmIfDigitalButtonIsPushed("4");
+            case FIVE_BUTTON -> algorithmIfDigitalButtonIsPushed("5");
+            case SIX_BUTTON -> algorithmIfDigitalButtonIsPushed("6");
+            case SEVEN_BUTTON -> algorithmIfDigitalButtonIsPushed("7");
+            case EIGHT_BUTTON -> algorithmIfDigitalButtonIsPushed("8");
+            case NINE_BUTTON -> algorithmIfDigitalButtonIsPushed("9");
+            case ADDITION_BUTTON -> algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');
+            case SUBTRACTION_BUTTON -> algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');
+            case MULTIPLICATION_BUTTON -> algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');
+            case DIVISION_BUTTON -> algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');
             case PLUSMINUS_BUTTON -> buttonPlusMinusPusher();
             case EQUALS_BUTTON -> buttonEqualsPusher();
             case POINT_BUTTON -> buttonPointPusher();
@@ -267,16 +267,6 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         }
     }
 
-    public void buttonZeroPusher () {algorithmIfDigitalButtonIsPushed("0");}
-    public void buttonOnePusher () {algorithmIfDigitalButtonIsPushed("1");}
-    public void buttonTwoPusher () {algorithmIfDigitalButtonIsPushed("2");}
-    public void buttonThreePusher () {algorithmIfDigitalButtonIsPushed("3");}
-    public void buttonFourPusher () {algorithmIfDigitalButtonIsPushed("4");}
-    public void buttonFivePusher () {algorithmIfDigitalButtonIsPushed("5");}
-    public void buttonSixPusher () {algorithmIfDigitalButtonIsPushed("6");}
-    public void buttonSevenPusher () {algorithmIfDigitalButtonIsPushed("7");}
-    public void buttonEightPusher () {algorithmIfDigitalButtonIsPushed("8");}
-    public void buttonNinePusher () {algorithmIfDigitalButtonIsPushed("9");}
     public void algorithmIfDigitalButtonIsPushed (String digitButton) {
         if (pole2String.equals("0")) {
             pole2String = digitButton;
@@ -318,58 +308,20 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
         textLabel2.setText(pole2String);
         pole2String = "";
     }
-    public void buttonAdditionPusher () {
-        if (pole1String.contains("+") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("+", '+');}
-        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
-        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
-        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("+");}
+    public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char action) {
+        if (pole1String.contains(symbol) && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol(symbol, action);}
+        else if (pole1String.contains(symbol2) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
+        else if (pole1String.contains(symbol3) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
+        else if (pole1String.contains(symbol4) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
         else {
-            pole1String = pole2String + "+";
+            pole1String = pole2String + symbol;
             textLabel1.setText(pole1String);
             pole1Double = Double.parseDouble(pole2String);
             textLabel2.setText(pole2String);
             pole2String = "";
         }
     }
-    public void buttonSubtractionPusher () {
-        if (pole1String.contains("-") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("-", '-');}
-        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("-");}
-        else {
-            pole1String = pole2String + "-";
-            textLabel1.setText(pole1String);
-            pole1Double = Double.parseDouble(pole2String);
-            textLabel2.setText(pole2String);
-            pole2String = "";
-        }
-    }
-    public void buttonMultiplicationPusher () {
-        if (pole1String.contains("\u00D7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00D7", '*');}
-        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-        else if (pole1String.contains("\u00F7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00D7");}
-        else {
-            pole1String = pole2String + "\u00D7";
-            textLabel1.setText(pole1String);
-            pole1Double = Double.parseDouble(pole2String);
-            textLabel2.setText(pole2String);
-            pole2String = "";
-        }
-    }
-    public void buttonDivisionPusher () {
-        if (pole1String.contains("\u00F7") && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol("\u00F7", '/');}
-        else if (pole1String.contains("+") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-        else if (pole1String.contains("-") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-        else if (pole1String.contains("\u00D7") && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol("\u00F7");}
-        else {
-            pole1String = pole2String + "\u00F7";
-            textLabel1.setText(pole1String);
-            pole1Double = Double.parseDouble(pole2String);
-            textLabel2.setText(pole2String);
-            pole2String = "";
-        }
-    }
+
     public void buttonEqualsPusher () {
         if (pole1String.contains("+")) {equating('+');}
         if (pole1String.contains("-")) {equating('-');}
@@ -426,8 +378,5 @@ public class CalculatorWindow extends JFrame implements ActionListener, ButtonsF
             textLabel2.setText(pole2String);
         }
     }
-
-
-
 }
 
