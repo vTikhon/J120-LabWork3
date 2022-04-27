@@ -34,7 +34,6 @@ public class Calculator extends JFrame implements ActionListener {
     JLabel textLabel1 = new JLabel(pole1String, SwingConstants.RIGHT);
     JLabel textLabel2 = new JLabel(pole2String, SwingConstants.RIGHT);
     double pole1Double, pole2Double;
-    int pole1Integer, pole2Integer;
 
     public Calculator() {
         super("Tikhon's calculator");
@@ -227,24 +226,24 @@ public class Calculator extends JFrame implements ActionListener {
     //функционал нажатий на кнопки
     @Override
     public void actionPerformed(ActionEvent userAction) {
-        if (userAction.getSource() == buttonZero) {algorithmIfDigitalButtonIsPushed("0");}
-        else if (userAction.getSource() == buttonOne) {algorithmIfDigitalButtonIsPushed("1");}
-        else if (userAction.getSource() == buttonTwo) {algorithmIfDigitalButtonIsPushed("2");}
-        else if (userAction.getSource() == buttonThree) {algorithmIfDigitalButtonIsPushed("3");}
-        else if (userAction.getSource() == buttonFour) {algorithmIfDigitalButtonIsPushed("4");}
-        else if (userAction.getSource() == buttonFive) {algorithmIfDigitalButtonIsPushed("5");}
-        else if (userAction.getSource() == buttonSix) {algorithmIfDigitalButtonIsPushed("6");}
-        else if (userAction.getSource() == buttonSeven) {algorithmIfDigitalButtonIsPushed("7");}
-        else if (userAction.getSource() == buttonEight) {algorithmIfDigitalButtonIsPushed("8");}
-        else if (userAction.getSource() == buttonNine) {algorithmIfDigitalButtonIsPushed("9");}
-        else if (userAction.getSource() == buttonAddition) {algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');}
-        else if (userAction.getSource() == buttonSubtraction) {algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');}
-        else if (userAction.getSource() == buttonMultiplication) {algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');}
-        else if (userAction.getSource() == buttonDivision) {algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');}
-        else if (userAction.getSource() == buttonPlusMinus) {algorithmIfPlusMinusButtonIsPushed();}
-        else if (userAction.getSource() == buttonEquals) {algorithmIfEqualButtonIsPushed();}
-        else if (userAction.getSource() == buttonPoint) {algorithmIfPointButtonIsPushed();}
-        else if (userAction.getSource() == buttonClean) {algorithmIfCleanButtonIsPushed();}
+        if (userAction.getSource() == buttonZero) algorithmIfDigitalButtonIsPushed("0");
+        else if (userAction.getSource() == buttonOne) algorithmIfDigitalButtonIsPushed("1");
+        else if (userAction.getSource() == buttonTwo) algorithmIfDigitalButtonIsPushed("2");
+        else if (userAction.getSource() == buttonThree) algorithmIfDigitalButtonIsPushed("3");
+        else if (userAction.getSource() == buttonFour) algorithmIfDigitalButtonIsPushed("4");
+        else if (userAction.getSource() == buttonFive) algorithmIfDigitalButtonIsPushed("5");
+        else if (userAction.getSource() == buttonSix) algorithmIfDigitalButtonIsPushed("6");
+        else if (userAction.getSource() == buttonSeven) algorithmIfDigitalButtonIsPushed("7");
+        else if (userAction.getSource() == buttonEight) algorithmIfDigitalButtonIsPushed("8");
+        else if (userAction.getSource() == buttonNine) algorithmIfDigitalButtonIsPushed("9");
+        else if (userAction.getSource() == buttonAddition) algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');
+        else if (userAction.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');
+        else if (userAction.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');
+        else if (userAction.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');
+        else if (userAction.getSource() == buttonPlusMinus) algorithmIfPlusMinusButtonIsPushed();
+        else if (userAction.getSource() == buttonEquals) algorithmIfEqualButtonIsPushed();
+        else if (userAction.getSource() == buttonPoint) algorithmIfPointButtonIsPushed();
+        else if (userAction.getSource() == buttonClean) algorithmIfCleanButtonIsPushed();
     }
 
     public void algorithmIfDigitalButtonIsPushed (String digitButton) {
@@ -257,10 +256,10 @@ public class Calculator extends JFrame implements ActionListener {
     }
     
     public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
-        if (pole1String.contains(symbol) && !pole2String.equals("")) {correctLabel1IfItTheSameSymbol(symbol, operation);}
-        else if (pole1String.contains(symbol2) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
-        else if (pole1String.contains(symbol3) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
-        else if (pole1String.contains(symbol4) && pole2String.equals("")) {correctLabel1IfItHasAnotherSymbol(symbol);}
+        if (pole1String.contains(symbol) && !pole2String.equals("")) correctLabel1IfItTheSameSymbol(symbol, operation);
+        else if (pole1String.contains(symbol2) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
+        else if (pole1String.contains(symbol3) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
+        else if (pole1String.contains(symbol4) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
         else if (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
         else {
             pole1String = pole2String + symbol;
@@ -275,9 +274,7 @@ public class Calculator extends JFrame implements ActionListener {
     public void algorithmIfPlusMinusButtonIsPushed () {
         pole2Double = Double.parseDouble(pole2String);
         if (pole2Double % 1 == 0) {
-            pole2Integer = (int) pole2Double;
-            pole2Integer = -1 * pole2Integer;
-            pole2String = Integer.toString(pole2Integer);
+            pole2String = Integer.toString((int)(-1 * pole2Double));
         } else {
             pole2Double = -1 * pole2Double;
             pole2String = Double.toString(pole2Double);
@@ -322,12 +319,12 @@ public class Calculator extends JFrame implements ActionListener {
             case '*' -> pole1Double = pole1Double * pole2Double;
             case '/' -> pole1Double = pole1Double / pole2Double;
         }
-        doesTextHasPointOrNot();
+        doesValueInteger();
         textLabel2.setText(pole2String);
     }
 
     public void correctLabel1IfItHasAnotherSymbol (String symbol) {
-        doesTextHasPointOrNot();
+        doesValueInteger();
         pole1String = pole1String + symbol;
         textLabel1.setText(pole1String);
     }
@@ -341,8 +338,7 @@ public class Calculator extends JFrame implements ActionListener {
         }
         pole2Double = pole1Double;
         if (pole1Double % 1 == 0) {
-            pole1Integer = (int) pole1Double;
-            pole1String = Integer.toString(pole1Integer);
+            pole1String = Integer.toString((int)pole1Double);
         } else {
             pole1String = Double.toString(pole1Double);
         }
@@ -353,10 +349,9 @@ public class Calculator extends JFrame implements ActionListener {
         pole2String = "";
     }
 
-    public void doesTextHasPointOrNot () {
+    public void doesValueInteger () {
         if (pole1Double % 1 == 0) {
-            pole1Integer = (int) pole1Double;
-            pole2String = Integer.toString(pole1Integer);
+            pole2String = Integer.toString((int)pole1Double);
         } else {
             pole2String = Double.toString(pole1Double);
         }
