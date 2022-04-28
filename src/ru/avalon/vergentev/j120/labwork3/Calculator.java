@@ -293,6 +293,12 @@ public class Calculator extends JFrame implements ActionListener {
         else if (pole1String.contains("\u00F7") && pole2String.equals("")) changeSymbolInTextLabel1(symbolOfButtonPushed);
         else if (pole1String.contains("\u00F7") && !pole2String.equals("")) calculatingIfOperationIsPushed("\u00F7", symbolOfButtonPushed); //проверка
         else {
+            pole2Double = Double.parseDouble(pole2String);
+            if (pole2Double % 1 == 0) {
+                pole2String = Integer.toString((int)pole2Double);
+            } else {
+                pole2String = Double.toString(pole2Double);
+            }
             pole1String = pole2String + symbolOfButtonPushed;
             textLabel1.setText(pole1String);
             pole1Double = Double.parseDouble(pole2String);
@@ -346,6 +352,7 @@ public class Calculator extends JFrame implements ActionListener {
             calculating(operation);
             removePointIfValueIsInteger();
             textLabel2.setText(pole2String);
+            pole1String = Double.toString(pole1Double);
         } else if (pole2String.equals("0")) {
             pole1String = "";
             pole2String = "";
@@ -357,10 +364,11 @@ public class Calculator extends JFrame implements ActionListener {
             calculating(operation);
             removePointIfValueIsInteger();
             textLabel2.setText(pole2String);
+            pole1String = Double.toString(pole1Double);
         }
     }
 
-    public void calculating (String operation) {
+    public double calculating (String operation) {
         pole2Double = Double.parseDouble(pole2String);
         switch (operation) {
             case "+" -> pole1Double = pole1Double + pole2Double;
@@ -368,6 +376,7 @@ public class Calculator extends JFrame implements ActionListener {
             case "\u00D7" -> pole1Double = pole1Double * pole2Double;
             case "\u00F7" -> pole1Double = pole1Double / pole2Double;
         }
+        return pole1Double;
     }
 
     public void removePointIfValueIsInteger () {
