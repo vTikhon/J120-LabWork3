@@ -236,10 +236,10 @@ public class Calculator extends JFrame implements ActionListener {
         else if (userAction.getSource() == buttonSeven) algorithmIfDigitalButtonIsPushed("7");
         else if (userAction.getSource() == buttonEight) algorithmIfDigitalButtonIsPushed("8");
         else if (userAction.getSource() == buttonNine) algorithmIfDigitalButtonIsPushed("9");
-        else if (userAction.getSource() == buttonAddition) algorithmIfOperationButtonIsPushed("+", "-", "\u00D7", "\u00F7", '+');
-        else if (userAction.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-", "+", "\u00D7", "\u00F7", '-');
-        else if (userAction.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7", "+", "-", "\u00F7", '*');
-        else if (userAction.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7", "+", "-", "\u00D7", '/');
+        else if (userAction.getSource() == buttonAddition) algorithmIfOperationButtonIsPushed("+");
+        else if (userAction.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-");
+        else if (userAction.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7");
+        else if (userAction.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7");
         else if (userAction.getSource() == buttonPlusMinus) algorithmIfPlusMinusButtonIsPushed();
         else if (userAction.getSource() == buttonEquals) algorithmIfEqualButtonIsPushed();
         else if (userAction.getSource() == buttonPoint) algorithmIfPointButtonIsPushed();
@@ -283,17 +283,17 @@ public class Calculator extends JFrame implements ActionListener {
         pole2Double = Double.parseDouble(pole2String);
     }
     
-    public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
-        if      (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
-        else if (pole1String.contains(symbol) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol, operation);
-        else if (pole1String.contains(symbol2) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
-        else if (pole1String.contains(symbol2) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol2, operation); //проверка
-        else if (pole1String.contains(symbol3) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
-        else if (pole1String.contains(symbol3) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol3, operation); //поверка
-        else if (pole1String.contains(symbol4) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
-        else if (pole1String.contains(symbol4) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol4, operation); //проверка
+    public void algorithmIfOperationButtonIsPushed (String symbolOfButtonPushed) {
+        if      (pole1String.contains("+") && pole2String.equals(""))  changeSymbolInTextLabel1(symbolOfButtonPushed);
+        else if (pole1String.contains("+") && !pole2String.equals("")) calculatingIfOperationIsPushed("+", symbolOfButtonPushed);
+        else if (pole1String.contains("-") && pole2String.equals("")) changeSymbolInTextLabel1(symbolOfButtonPushed);
+        else if (pole1String.contains("-") && !pole2String.equals("")) calculatingIfOperationIsPushed("-", symbolOfButtonPushed); //проверка
+        else if (pole1String.contains("\u00D7") && pole2String.equals("")) changeSymbolInTextLabel1(symbolOfButtonPushed);
+        else if (pole1String.contains("\u00D7") && !pole2String.equals("")) calculatingIfOperationIsPushed("\u00D7", symbolOfButtonPushed); //поверка
+        else if (pole1String.contains("\u00F7") && pole2String.equals("")) changeSymbolInTextLabel1(symbolOfButtonPushed);
+        else if (pole1String.contains("\u00F7") && !pole2String.equals("")) calculatingIfOperationIsPushed("\u00F7", symbolOfButtonPushed); //проверка
         else {
-            pole1String = pole2String + symbol;
+            pole1String = pole2String + symbolOfButtonPushed;
             textLabel1.setText(pole1String);
             pole1Double = Double.parseDouble(pole2String);
             textLabel2.setText(pole2String);
@@ -302,13 +302,14 @@ public class Calculator extends JFrame implements ActionListener {
         }
     }
 
-    public void changeSymbolInTextLabel1 (String symbol) {
+    public void changeSymbolInTextLabel1 (String symbolOfButtonPushed) {
         removePointIfValueIsInteger();
-        pole1String = pole1String.substring(0, pole1String.length()-1) + symbol;
+        pole1String = pole1String.substring(0, pole1String.length()-1) + symbolOfButtonPushed;
         textLabel1.setText(pole1String);
+        pole2String = "";
     }
 
-    public void calculatingIfOperationIsPushed (String symbol, char operation) {
+    public void calculatingIfOperationIsPushed (String operation, String symbolOfButtonPushed) {
         if (pole2String.equals("0")) {
             pole1String = "";
             pole2String = "";
@@ -317,8 +318,13 @@ public class Calculator extends JFrame implements ActionListener {
         } else {
             calculating(operation);
             pole2Double = pole1Double;
+            if (pole1Double % 1 == 0) {
+                pole1String = Integer.toString((int)pole1Double);
+            } else {
+                pole1String = Double.toString(pole1Double);
+            }
             pole2String = pole1String;
-            pole1String = pole1String + symbol;
+            pole1String = pole1String + symbolOfButtonPushed;
             textLabel1.setText(pole1String);
             textLabel2.setText(pole2String);
             pole2String = "";
@@ -326,13 +332,13 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     public void algorithmIfEqualButtonIsPushed () {
-        if (pole1String.contains("+")) calculatingIfEqualIsPushed('+');
-        else if (pole1String.contains("-")) calculatingIfEqualIsPushed('-');
-        else if (pole1String.contains("\u00D7")) calculatingIfEqualIsPushed('*');
-        else if (pole1String.contains("\u00F7")) calculatingIfEqualIsPushed('/');
+        if (pole1String.contains("+")) calculatingIfEqualIsPushed("+");
+        else if (pole1String.contains("-")) calculatingIfEqualIsPushed("-");
+        else if (pole1String.contains("\u00D7")) calculatingIfEqualIsPushed("\u00D7");
+        else if (pole1String.contains("\u00F7")) calculatingIfEqualIsPushed("\u00F7");
     }
 
-    public void calculatingIfEqualIsPushed (char operation) {
+    public void calculatingIfEqualIsPushed (String operation) {
         if (pole2String.equals("")) {
             pole2String = pole2StringTemp;
             pole1String = pole1String + pole2String;
@@ -354,13 +360,13 @@ public class Calculator extends JFrame implements ActionListener {
         }
     }
 
-    public void calculating (char operation) {
+    public void calculating (String operation) {
         pole2Double = Double.parseDouble(pole2String);
         switch (operation) {
-            case '+' -> pole1Double = pole1Double + pole2Double;
-            case '-' -> pole1Double = pole1Double - pole2Double;
-            case '*' -> pole1Double = pole1Double * pole2Double;
-            case '/' -> pole1Double = pole1Double / pole2Double;
+            case "+" -> pole1Double = pole1Double + pole2Double;
+            case "-" -> pole1Double = pole1Double - pole2Double;
+            case "\u00D7" -> pole1Double = pole1Double * pole2Double;
+            case "\u00F7" -> pole1Double = pole1Double / pole2Double;
         }
     }
 
