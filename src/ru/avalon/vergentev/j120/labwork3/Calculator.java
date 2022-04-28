@@ -175,24 +175,24 @@ public class Calculator extends JFrame implements ActionListener {
 
     //функционал нажатий на кнопки
     @Override
-    public void actionPerformed(ActionEvent userAction) {
-        if (userAction.getSource() == buttonZero) algorithmIfDigitalButtonIsPushed("0");
-        else if (userAction.getSource() == buttonOne) algorithmIfDigitalButtonIsPushed("1");
-        else if (userAction.getSource() == buttonTwo) algorithmIfDigitalButtonIsPushed("2");
-        else if (userAction.getSource() == buttonThree) algorithmIfDigitalButtonIsPushed("3");
-        else if (userAction.getSource() == buttonFour) algorithmIfDigitalButtonIsPushed("4");
-        else if (userAction.getSource() == buttonFive) algorithmIfDigitalButtonIsPushed("5");
-        else if (userAction.getSource() == buttonSix) algorithmIfDigitalButtonIsPushed("6");
-        else if (userAction.getSource() == buttonSeven) algorithmIfDigitalButtonIsPushed("7");
-        else if (userAction.getSource() == buttonEight) algorithmIfDigitalButtonIsPushed("8");
-        else if (userAction.getSource() == buttonNine) algorithmIfDigitalButtonIsPushed("9");
-        else if (userAction.getSource() == buttonAddition) algorithmIfOperationButtonIsPushed("+");
-        else if (userAction.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-");
-        else if (userAction.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7");
-        else if (userAction.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7");
-        else if (userAction.getSource() == buttonEquals) algorithmIfEqualButtonIsPushed();
-        else if (userAction.getSource() == buttonPoint) algorithmIfPointButtonIsPushed();
-        else if (userAction.getSource() == buttonClean) algorithmIfCleanButtonIsPushed();
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == buttonZero) algorithmIfDigitalButtonIsPushed("0");
+        else if (e.getSource() == buttonOne) algorithmIfDigitalButtonIsPushed("1");
+        else if (e.getSource() == buttonTwo) algorithmIfDigitalButtonIsPushed("2");
+        else if (e.getSource() == buttonThree) algorithmIfDigitalButtonIsPushed("3");
+        else if (e.getSource() == buttonFour) algorithmIfDigitalButtonIsPushed("4");
+        else if (e.getSource() == buttonFive) algorithmIfDigitalButtonIsPushed("5");
+        else if (e.getSource() == buttonSix) algorithmIfDigitalButtonIsPushed("6");
+        else if (e.getSource() == buttonSeven) algorithmIfDigitalButtonIsPushed("7");
+        else if (e.getSource() == buttonEight) algorithmIfDigitalButtonIsPushed("8");
+        else if (e.getSource() == buttonNine) algorithmIfDigitalButtonIsPushed("9");
+        else if (e.getSource() == buttonAddition) algorithmIfOperationButtonIsPushed("+");
+        else if (e.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-");
+        else if (e.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7");
+        else if (e.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7");
+        else if (e.getSource() == buttonEquals) algorithmIfEqualButtonIsPushed();
+        else if (e.getSource() == buttonPoint) algorithmIfPointButtonIsPushed();
+        else if (e.getSource() == buttonClean) algorithmIfCleanButtonIsPushed();
     }
 
     public void algorithmIfDigitalButtonIsPushed (String digitButton) {
