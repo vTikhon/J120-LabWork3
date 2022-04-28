@@ -39,7 +39,7 @@ public class Calculator extends JFrame implements ActionListener {
         super("Tikhon's calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(340, 550);
-        getContentPane().setBackground(new Color(186,186,186));
+        getContentPane().setBackground(new Color(200,200,200));
         setResizable(true);
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());        
@@ -57,42 +57,42 @@ public class Calculator extends JFrame implements ActionListener {
         textLabel2.setFont(new Font("Segoe UI", Font.BOLD, 47));
 
         GridBagConstraints buttonFree1Position = new GridBagConstraints();
-        setButtonInterface(buttonFree1,  225, 225, 225,
+        setButtonInterface(buttonFree1,  235, 235, 235,
                 buttonFree1Position,  1,  1, 0,  4,  1,  1);
         buttonFree1.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree2Position = new GridBagConstraints();
-        setButtonInterface(buttonFree2,  225, 225, 225,
+        setButtonInterface(buttonFree2,  235, 235, 235,
                 buttonFree2Position,  1,  1, 1,  4,  1,  1);
         buttonFree2.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonCleanPosition = new GridBagConstraints();
-        setButtonInterface(buttonClean,  225, 225, 225,
+        setButtonInterface(buttonClean,  235, 235, 235,
                 buttonCleanPosition,  1,  1, 2 , 4, 1, 1);
         buttonClean.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree3Position = new GridBagConstraints();
-        setButtonInterface(buttonFree3,  225, 225, 225,
+        setButtonInterface(buttonFree3,  235, 235, 235,
                 buttonFree3Position,  1,  1, 3 , 4, 1, 1);
         buttonFree3.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree4Position = new GridBagConstraints();
-        setButtonInterface(buttonFree4,  225, 225, 225,
+        setButtonInterface(buttonFree4,  235, 235, 235,
                 buttonFree4Position,  1,  1, 0 , 5, 1, 1);
         buttonFree4.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree5Position = new GridBagConstraints();
-        setButtonInterface(buttonFree5,  225, 225, 225,
+        setButtonInterface(buttonFree5,  235, 235, 235,
                 buttonFree5Position,  1,  1, 1 , 5, 1, 1);
         buttonFree5.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonFree6Position = new GridBagConstraints();
-        setButtonInterface(buttonFree6,  225, 225, 225,
+        setButtonInterface(buttonFree6,  235, 235, 235,
                 buttonFree6Position,  1,  1, 2 , 5, 1, 1);
         buttonFree6.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonDivisionPosition = new GridBagConstraints();
-        setButtonInterface(buttonDivision,  225, 225, 225,
+        setButtonInterface(buttonDivision,  235, 235, 235,
                 buttonDivisionPosition,  1,  1, 3 , 5, 1, 1);
         buttonDivision.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
@@ -112,7 +112,7 @@ public class Calculator extends JFrame implements ActionListener {
         buttonNine.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonMultiplicationPosition = new GridBagConstraints();
-        setButtonInterface(buttonMultiplication,  225, 225, 225,
+        setButtonInterface(buttonMultiplication,  235, 235, 235,
                 buttonMultiplicationPosition,  1,  1, 3 , 6, 1, 1);
         buttonMultiplication.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
@@ -132,7 +132,7 @@ public class Calculator extends JFrame implements ActionListener {
         buttonSix.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
         GridBagConstraints buttonSubtractionPosition = new GridBagConstraints();
-        setButtonInterface(buttonSubtraction,  225, 225, 225,
+        setButtonInterface(buttonSubtraction,  235, 235, 235,
                 buttonSubtractionPosition,  1,  1, 3 , 7, 1, 1);
         buttonSubtraction.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
@@ -155,7 +155,7 @@ public class Calculator extends JFrame implements ActionListener {
 
 
         GridBagConstraints buttonAdditionPosition = new GridBagConstraints();
-        setButtonInterface(buttonAddition,  225, 225, 225,
+        setButtonInterface(buttonAddition,  235, 235, 235,
                 buttonAdditionPosition,  1,  1, 3 , 8, 1, 1);
         buttonAddition.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
@@ -175,7 +175,7 @@ public class Calculator extends JFrame implements ActionListener {
         buttonPoint.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
         GridBagConstraints buttonEqualsPosition = new GridBagConstraints();
-        setButtonInterface(buttonEquals, 225,225, 225,
+        setButtonInterface(buttonEquals, 100,180, 220,
                 buttonEqualsPosition,  1,  1, 3 , 9, 1, 1);
         buttonEquals.setFont(new Font("Segoe UI", Font.PLAIN, 27));
     }
