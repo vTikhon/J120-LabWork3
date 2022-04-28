@@ -256,10 +256,10 @@ public class Calculator extends JFrame implements ActionListener {
     }
     
     public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
-        if (pole1String.contains(symbol) && !pole2String.equals("")) correctLabel1IfItTheSameSymbol(symbol, operation);
-        else if (pole1String.contains(symbol2) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
-        else if (pole1String.contains(symbol3) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
-        else if (pole1String.contains(symbol4) && pole2String.equals("")) correctLabel1IfItHasAnotherSymbol(symbol);
+        if (pole1String.contains(symbol) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol, operation);
+        else if (pole1String.contains(symbol2) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
+        else if (pole1String.contains(symbol3) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
+        else if (pole1String.contains(symbol4) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
         else if (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
         else {
             pole1String = pole2String + symbol;
@@ -300,42 +300,31 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     public void algorithmIfEqualButtonIsPushed () {
-        if (pole1String.contains("+")) {calculating('+');}
-        else if (pole1String.contains("-")) {calculating('-');}
-        else if (pole1String.contains("\u00D7")) {calculating('*');}
-        else if (pole1String.contains("\u00F7")) {calculating('/');}
+        if (pole1String.contains("+")) {calculatingIfEqualIsPushed('+');}
+        else if (pole1String.contains("-")) {calculatingIfEqualIsPushed('-');}
+        else if (pole1String.contains("\u00D7")) {calculatingIfEqualIsPushed('*');}
+        else if (pole1String.contains("\u00F7")) {calculatingIfEqualIsPushed('/');}
     }
 
-    public void calculating (char operation) {
+    public void calculatingIfEqualIsPushed (char operation) {
         if (pole2String == "") {
             pole2String = pole2StringTemp;
         }
         pole1String = pole1String + pole2String;
         textLabel1.setText(pole1String + "=");
-        pole2Double = Double.parseDouble(pole2String);
-        switch (operation) {
-            case '+' -> pole1Double = pole1Double + pole2Double;
-            case '-' -> pole1Double = pole1Double - pole2Double;
-            case '*' -> pole1Double = pole1Double * pole2Double;
-            case '/' -> pole1Double = pole1Double / pole2Double;
-        }
+        calculating(operation);
         doesValueInteger();
         textLabel2.setText(pole2String);
     }
 
-    public void correctLabel1IfItHasAnotherSymbol (String symbol) {
+    public void changeSymbolInTextLabel1 (String symbol) {
         doesValueInteger();
-        pole1String = pole1String + symbol;
+        pole1String = pole1String.substring(0, pole1String.length()-1) + symbol;
         textLabel1.setText(pole1String);
     }
-    public void correctLabel1IfItTheSameSymbol (String symbol, char operation) {
-        pole2Double = Double.parseDouble(pole2String);
-        switch (operation) {
-            case '+' -> pole1Double = pole1Double + pole2Double;
-            case '-' -> pole1Double = pole1Double - pole2Double;
-            case '*' -> pole1Double = pole1Double * pole2Double;
-            case '/' -> pole1Double = pole1Double / pole2Double;
-        }
+
+    public void calculatingIfOperationIsPushed (String symbol, char operation) {
+        calculating(operation);
         pole2Double = pole1Double;
         if (pole1Double % 1 == 0) {
             pole1String = Integer.toString((int)pole1Double);
@@ -347,6 +336,16 @@ public class Calculator extends JFrame implements ActionListener {
         textLabel1.setText(pole1String);
         textLabel2.setText(pole2String);
         pole2String = "";
+    }
+
+    public void calculating (char operation) {
+        pole2Double = Double.parseDouble(pole2String);
+        switch (operation) {
+            case '+' -> pole1Double = pole1Double + pole2Double;
+            case '-' -> pole1Double = pole1Double - pole2Double;
+            case '*' -> pole1Double = pole1Double * pole2Double;
+            case '/' -> pole1Double = pole1Double / pole2Double;
+        }
     }
 
     public void doesValueInteger () {
