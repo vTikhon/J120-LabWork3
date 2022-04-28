@@ -284,11 +284,14 @@ public class Calculator extends JFrame implements ActionListener {
     }
     
     public void algorithmIfOperationButtonIsPushed (String symbol,String symbol2, String symbol3, String symbol4, char operation) {
-        if (pole1String.contains(symbol) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol, operation);
+        if      (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
+        else if (pole1String.contains(symbol) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol, operation);
         else if (pole1String.contains(symbol2) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
+        else if (pole1String.contains(symbol2) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol2, operation); //проверка
         else if (pole1String.contains(symbol3) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
+        else if (pole1String.contains(symbol3) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol3, operation); //поверка
         else if (pole1String.contains(symbol4) && pole2String.equals("")) changeSymbolInTextLabel1(symbol);
-        else if (pole1String.contains(symbol) && pole2String.equals("")) {}   //ничего не делать, если символ уже был нажат
+        else if (pole1String.contains(symbol4) && !pole2String.equals("")) calculatingIfOperationIsPushed(symbol4, operation); //проверка
         else {
             pole1String = pole2String + symbol;
             textLabel1.setText(pole1String);
@@ -300,24 +303,26 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     public void changeSymbolInTextLabel1 (String symbol) {
-        doesValueInteger();
+        removePointIfValueIsInteger();
         pole1String = pole1String.substring(0, pole1String.length()-1) + symbol;
         textLabel1.setText(pole1String);
     }
 
     public void calculatingIfOperationIsPushed (String symbol, char operation) {
-        calculating(operation);
-        pole2Double = pole1Double;
-        if (pole1Double % 1 == 0) {
-            pole1String = Integer.toString((int)pole1Double);
+        if (pole2String.equals("0")) {
+            pole1String = "";
+            pole2String = "";
+            textLabel1.setText(pole1String);
+            textLabel2.setText("Infinity");
         } else {
-            pole1String = Double.toString(pole1Double);
+            calculating(operation);
+            pole2Double = pole1Double;
+            pole2String = pole1String;
+            pole1String = pole1String + symbol;
+            textLabel1.setText(pole1String);
+            textLabel2.setText(pole2String);
+            pole2String = "";
         }
-        pole2String = pole1String;
-        pole1String = pole1String + symbol;
-        textLabel1.setText(pole1String);
-        textLabel2.setText(pole2String);
-        pole2String = "";
     }
 
     public void algorithmIfEqualButtonIsPushed () {
@@ -328,14 +333,25 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     public void calculatingIfEqualIsPushed (char operation) {
-        if (pole2String == "") {
+        if (pole2String.equals("")) {
             pole2String = pole2StringTemp;
+            pole1String = pole1String + pole2String;
+            textLabel1.setText(pole1String + "=");
+            calculating(operation);
+            removePointIfValueIsInteger();
+            textLabel2.setText(pole2String);
+        } else if (pole2String.equals("0")) {
+            pole1String = "";
+            pole2String = "";
+            textLabel1.setText(pole1String);
+            textLabel2.setText("Infinity");
+        } else {
+            pole1String = pole1String + pole2String;
+            textLabel1.setText(pole1String + "=");
+            calculating(operation);
+            removePointIfValueIsInteger();
+            textLabel2.setText(pole2String);
         }
-        pole1String = pole1String + pole2String;
-        textLabel1.setText(pole1String + "=");
-        calculating(operation);
-        doesValueInteger();
-        textLabel2.setText(pole2String);
     }
 
     public void calculating (char operation) {
@@ -344,16 +360,11 @@ public class Calculator extends JFrame implements ActionListener {
             case '+' -> pole1Double = pole1Double + pole2Double;
             case '-' -> pole1Double = pole1Double - pole2Double;
             case '*' -> pole1Double = pole1Double * pole2Double;
-            case '/' -> {if (pole2Double == 0) {
-                            pole2String = "";
-                            textLabel2.setText("Cannot divide by zero");
-                         } else {
-                            pole1Double = pole1Double / pole2Double;
-                         }}
+            case '/' -> pole1Double = pole1Double / pole2Double;
         }
     }
 
-    public void doesValueInteger () {
+    public void removePointIfValueIsInteger () {
         if (pole1Double % 1 == 0) {
             pole2String = Integer.toString((int)pole1Double);
         } else {
