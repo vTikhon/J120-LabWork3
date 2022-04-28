@@ -26,7 +26,7 @@ public class Calculator extends JFrame implements ActionListener {
     JButton buttonMultiplication = new JButton("\u00D7");
     JButton buttonDivision = new JButton("\u00F7");
     JButton buttonEquals = new JButton("=");
-    JButton buttonPlusMinus = new JButton("+/-");
+    JButton buttonPlusMinus = new JButton("");
     JButton buttonClean = new JButton("C");
     String pole1String = "";
     String pole2String = "0";
@@ -240,7 +240,6 @@ public class Calculator extends JFrame implements ActionListener {
         else if (userAction.getSource() == buttonSubtraction) algorithmIfOperationButtonIsPushed("-");
         else if (userAction.getSource() == buttonMultiplication) algorithmIfOperationButtonIsPushed("\u00D7");
         else if (userAction.getSource() == buttonDivision) algorithmIfOperationButtonIsPushed("\u00F7");
-        else if (userAction.getSource() == buttonPlusMinus) algorithmIfPlusMinusButtonIsPushed();
         else if (userAction.getSource() == buttonEquals) algorithmIfEqualButtonIsPushed();
         else if (userAction.getSource() == buttonPoint) algorithmIfPointButtonIsPushed();
         else if (userAction.getSource() == buttonClean) algorithmIfCleanButtonIsPushed();
@@ -258,21 +257,13 @@ public class Calculator extends JFrame implements ActionListener {
     public void algorithmIfPointButtonIsPushed () {
         if (pole2String.contains(".")) {
             textLabel2.setText(pole2String);
+        } else if (pole2String.equals("")) {
+            pole2String = pole2String + "0.";
+            textLabel2.setText(pole2String);
         } else {
             pole2String = pole2String + ".";
             textLabel2.setText(pole2String);
         }
-    }
-
-    public void algorithmIfPlusMinusButtonIsPushed () {
-        pole2Double = Double.parseDouble(pole2String);
-        if (pole2Double % 1 == 0) {
-            pole2String = Integer.toString((int)(-1 * pole2Double));
-        } else {
-            pole2Double = -1 * pole2Double;
-            pole2String = Double.toString(pole2Double);
-        }
-        textLabel2.setText(pole2String);
     }
 
     public void algorithmIfCleanButtonIsPushed () {
