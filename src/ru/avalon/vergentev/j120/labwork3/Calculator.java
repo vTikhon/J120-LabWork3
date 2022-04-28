@@ -3,6 +3,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+import static java.awt.GridBagConstraints.CENTER;
+
 public class Calculator extends JFrame implements ActionListener {
     JButton buttonFree1 = new JButton("");
     JButton buttonFree2 = new JButton("");
@@ -44,183 +46,131 @@ public class Calculator extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
 
-        GridBagConstraints textLabel1Position = new GridBagConstraints();
-        setLabelInterface(textLabel1,  40, 40, 40, 0, 200, 0 ,
-                textLabel1Position,  1,  1, 0,  0,  1,  4, 0, 40);
-//        textLabel1.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 200)));
+        GridBagConstraints textLabel1Position = new GridBagConstraints(0,0,4,1,1,1,CENTER,1, new Insets(0,0,0,0),0,40);
+        setLabelInterface(textLabel1,  40, 40, 40, 0, 200, 0, textLabel1Position);
         textLabel1.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 
-        GridBagConstraints textLabel2Position = new GridBagConstraints();
-        setLabelInterface(textLabel2,  0, 0, 0, 200, 0, 0 ,
-                textLabel2Position,  1,  1, 0,  1,  2,  4, 0, 60);
-//        textLabel2.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
+        GridBagConstraints textLabel2Position = new GridBagConstraints(0,1,4,2,1,1,CENTER,1, new Insets(0,0,0,0),0,60);
+        setLabelInterface(textLabel2,  0, 0, 0, 200, 0, 0, textLabel2Position);
         textLabel2.setFont(new Font("Segoe UI", Font.BOLD, 47));
 
-        GridBagConstraints buttonFree1Position = new GridBagConstraints();
-        setButtonInterface(buttonFree1,  235, 235, 235,
-                buttonFree1Position,  1,  1, 0,  4,  1,  1);
+        GridBagConstraints buttonFree1Position = new GridBagConstraints(0,4,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree1,  235, 235, 235, buttonFree1Position);
         buttonFree1.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonFree2Position = new GridBagConstraints();
-        setButtonInterface(buttonFree2,  235, 235, 235,
-                buttonFree2Position,  1,  1, 1,  4,  1,  1);
+        GridBagConstraints buttonFree2Position = new GridBagConstraints(1,4,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree2,  235, 235, 235, buttonFree2Position);
         buttonFree2.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonCleanPosition = new GridBagConstraints();
-        setButtonInterface(buttonClean,  235, 235, 235,
-                buttonCleanPosition,  1,  1, 2 , 4, 1, 1);
+        GridBagConstraints buttonCleanPosition = new GridBagConstraints(2,4,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonClean,  235, 235, 235, buttonCleanPosition);
         buttonClean.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonFree3Position = new GridBagConstraints();
-        setButtonInterface(buttonFree3,  235, 235, 235,
-                buttonFree3Position,  1,  1, 3 , 4, 1, 1);
+        GridBagConstraints buttonFree3Position = new GridBagConstraints(3,4,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree3,  235, 235, 235, buttonFree3Position);
         buttonFree3.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonFree4Position = new GridBagConstraints();
-        setButtonInterface(buttonFree4,  235, 235, 235,
-                buttonFree4Position,  1,  1, 0 , 5, 1, 1);
+        GridBagConstraints buttonFree4Position = new GridBagConstraints(0,5,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree4,  235, 235, 235, buttonFree4Position);
         buttonFree4.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonFree5Position = new GridBagConstraints();
-        setButtonInterface(buttonFree5,  235, 235, 235,
-                buttonFree5Position,  1,  1, 1 , 5, 1, 1);
+        GridBagConstraints buttonFree5Position = new GridBagConstraints(1,5,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree5,  235, 235, 235, buttonFree5Position);
         buttonFree5.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonFree6Position = new GridBagConstraints();
-        setButtonInterface(buttonFree6,  235, 235, 235,
-                buttonFree6Position,  1,  1, 2 , 5, 1, 1);
+        GridBagConstraints buttonFree6Position = new GridBagConstraints(2,5,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFree6,  235, 235, 235, buttonFree6Position);
         buttonFree6.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonDivisionPosition = new GridBagConstraints();
-        setButtonInterface(buttonDivision,  235, 235, 235,
-                buttonDivisionPosition,  1,  1, 3 , 5, 1, 1);
+        GridBagConstraints buttonDivisionPosition = new GridBagConstraints(3,5,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonDivision,  235, 235, 235, buttonDivisionPosition);
         buttonDivision.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
-        GridBagConstraints buttonSevenPosition = new GridBagConstraints();
-        setButtonInterface(buttonSeven,  255, 255, 255,
-                buttonSevenPosition,  1,  1, 0 , 6, 1, 1);
+        GridBagConstraints buttonSevenPosition = new GridBagConstraints(0,6,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonSeven,  255, 255, 255, buttonSevenPosition);
         buttonSeven.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonEightPosition = new GridBagConstraints();
-        setButtonInterface(buttonEight,  255, 255, 255,
-                buttonEightPosition,  1,  1, 1 , 6, 1, 1);
+        GridBagConstraints buttonEightPosition = new GridBagConstraints(1,6,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonEight,  255, 255, 255, buttonEightPosition);
         buttonEight.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonNinePosition = new GridBagConstraints();
-        setButtonInterface(buttonNine,  255, 255, 255,
-                buttonNinePosition,  1,  1, 2 , 6, 1, 1);
+        GridBagConstraints buttonNinePosition = new GridBagConstraints(2,6,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonNine,  255, 255, 255, buttonNinePosition);
         buttonNine.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonMultiplicationPosition = new GridBagConstraints();
-        setButtonInterface(buttonMultiplication,  235, 235, 235,
-                buttonMultiplicationPosition,  1,  1, 3 , 6, 1, 1);
+        GridBagConstraints buttonMultiplicationPosition = new GridBagConstraints(3,6,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonMultiplication,  235, 235, 235, buttonMultiplicationPosition);
         buttonMultiplication.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
-        GridBagConstraints buttonFourPosition = new GridBagConstraints();
-        setButtonInterface(buttonFour,  255, 255, 255,
-                buttonFourPosition,  1,  1, 0 , 7, 1, 1);
+        GridBagConstraints buttonFourPosition = new GridBagConstraints(0,7,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFour,  255, 255, 255, buttonFourPosition);
         buttonFour.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonFivePosition = new GridBagConstraints();
-        setButtonInterface(buttonFive,  255, 255, 255,
-                buttonFivePosition,  1,  1, 1 , 7, 1, 1);
+        GridBagConstraints buttonFivePosition = new GridBagConstraints(1,7,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonFive,  255, 255, 255, buttonFivePosition);
         buttonFive.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonSixPosition = new GridBagConstraints();
-        setButtonInterface(buttonSix,  255, 255, 255,
-                buttonSixPosition,  1,  1, 2 , 7, 1, 1);
+        GridBagConstraints buttonSixPosition = new GridBagConstraints(2,7,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonSix,  255, 255, 255, buttonSixPosition);
         buttonSix.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonSubtractionPosition = new GridBagConstraints();
-        setButtonInterface(buttonSubtraction,  235, 235, 235,
-                buttonSubtractionPosition,  1,  1, 3 , 7, 1, 1);
+        GridBagConstraints buttonSubtractionPosition = new GridBagConstraints(3,7,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonSubtraction,  235, 235, 235, buttonSubtractionPosition);
         buttonSubtraction.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
-
-        GridBagConstraints buttonOnePosition = new GridBagConstraints();
-        setButtonInterface(buttonOne,  255, 255, 255,
-                buttonOnePosition,  1,  1, 0 , 8, 1, 1);
+        GridBagConstraints buttonOnePosition = new GridBagConstraints(0,8,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonOne,  255, 255, 255, buttonOnePosition);
         buttonOne.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
-        GridBagConstraints buttonTwoPosition = new GridBagConstraints();
-        setButtonInterface(buttonTwo,  255, 255, 255,
-                buttonTwoPosition,  1,  1, 1 , 8, 1, 1);
+        GridBagConstraints buttonTwoPosition = new GridBagConstraints(1,8,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonTwo,  255, 255, 255, buttonTwoPosition);
         buttonTwo.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonThreePosition = new GridBagConstraints();
-        setButtonInterface(buttonThree,  255, 255, 255,
-                buttonThreePosition,  1,  1, 2 , 8, 1, 1);
+        GridBagConstraints buttonThreePosition = new GridBagConstraints(2,8,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonThree,  255, 255, 255, buttonThreePosition);
         buttonThree.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
 
-        GridBagConstraints buttonAdditionPosition = new GridBagConstraints();
-        setButtonInterface(buttonAddition,  235, 235, 235,
-                buttonAdditionPosition,  1,  1, 3 , 8, 1, 1);
+        GridBagConstraints buttonAdditionPosition = new GridBagConstraints(3,8,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonAddition,  235, 235, 235, buttonAdditionPosition);
         buttonAddition.setFont(new Font("Segoe UI", Font.PLAIN, 27));
 
-        GridBagConstraints buttonPlusMinusPosition = new GridBagConstraints();
-        setButtonInterface(buttonPlusMinus,  255, 255, 255,
-                buttonPlusMinusPosition,  1,  1, 0 , 9, 1, 1);
+        GridBagConstraints buttonPlusMinusPosition = new GridBagConstraints(0,9,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonPlusMinus,  255, 255, 255, buttonPlusMinusPosition);
         buttonPlusMinus.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonZeroPosition = new GridBagConstraints();
-        setButtonInterface(buttonZero,  255, 255, 255,
-                buttonZeroPosition,  1,  1, 1 , 9, 1, 1);
+        GridBagConstraints buttonZeroPosition = new GridBagConstraints(1,9,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonZero,  255, 255, 255, buttonZeroPosition);
         buttonZero.setFont(new Font("Segoe UI", Font.BOLD, 17));
 
-        GridBagConstraints buttonPointPosition = new GridBagConstraints();
-        setButtonInterface(buttonPoint,  255, 255, 255,
-                buttonPointPosition,  1,  1, 2 , 9, 1, 1);
+        GridBagConstraints buttonPointPosition = new GridBagConstraints(2,9,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonPoint,  255, 255, 255, buttonPointPosition);
         buttonPoint.setFont(new Font("Segoe UI", Font.PLAIN, 17));
 
-        GridBagConstraints buttonEqualsPosition = new GridBagConstraints();
-        setButtonInterface(buttonEquals, 100,180, 220,
-                buttonEqualsPosition,  1,  1, 3 , 9, 1, 1);
+        GridBagConstraints buttonEqualsPosition = new GridBagConstraints(3,9,1,1,1,1,CENTER,1, new Insets(0,0,0,0),0,0);
+        setButtonInterface(buttonEquals, 100,180, 220, buttonEqualsPosition);
         buttonEquals.setFont(new Font("Segoe UI", Font.PLAIN, 27));
     }
 
     //METHODS
-    //метод определ€ющий внешний вид кнопки (дл€ конструктора)
-    public void setButtonInterface (JButton button,
-                                    int red, int green, int blue,
-                                    GridBagConstraints buttonPosition,
-                                    int weightx, int weighty,
-                                    int gridx, int gridy,
-                                    int gridheight, int gridwidth) {
-        button.setBackground(new Color(red,green,blue));
-        buttonPosition.fill = GridBagConstraints.BOTH;
-        buttonPosition.weightx = weightx;
-        buttonPosition.weighty = weighty;
-        buttonPosition.gridx = gridx;
-        buttonPosition.gridy = gridy;
-        buttonPosition.gridheight = gridheight;
-        buttonPosition.gridwidth = gridwidth;
-        button.addActionListener(this);
-        add(button, buttonPosition);
-    }
-
     //метод определ€ющий внешний вид текстового лэйбла (дл€ конструктора)
     public void setLabelInterface (JLabel label,
                                    int redFore, int greenFore, int blueFore,
-                                    int redBack, int greenBack, int blueBack,
-                                    GridBagConstraints labelPosition,
-                                    int weightx, int weighty,
-                                    int gridx, int gridy,
-                                    int gridheight, int gridwidth,
-                                   int ipadx, int ipady) {
+                                   int redBack, int greenBack, int blueBack,
+                                   GridBagConstraints labelPosition) {
         label.setForeground(new Color(redFore,greenFore,blueFore));
         label.setBackground(new Color(redBack,greenBack,blueBack));
-        labelPosition.fill = GridBagConstraints.BOTH;
-        labelPosition.weightx = weightx;
-        labelPosition.weighty = weighty;
-        labelPosition.gridx = gridx;
-        labelPosition.gridy = gridy;
-        labelPosition.gridheight = gridheight;
-        labelPosition.gridwidth = gridwidth;
-        labelPosition.ipadx = ipadx;
-        labelPosition.ipady = ipady;
         add(label, labelPosition);
+    }
+
+    //метод определ€ющий внешний вид кнопки (дл€ конструктора)
+    public void setButtonInterface (JButton button,
+                                    int red, int green, int blue,
+                                    GridBagConstraints buttonPosition) {
+        button.setBackground(new Color(red,green,blue));
+        button.addActionListener(this);
+        add(button, buttonPosition);
     }
 
     //функционал нажатий на кнопки

@@ -32,7 +32,7 @@ public class Game extends JFrame implements MouseListener {
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
 
-        GridBagConstraints button1Position = new GridBagConstraints(0,0,1,1,1,1, CENTER,1, new Insets(0,0,0,0),1,1);
+        GridBagConstraints button1Position = new GridBagConstraints(0,0,1,1,1,1,CENTER,1, new Insets(0,0,0,0),1,1);
         button1.addMouseListener(this);
         add(button1, button1Position);
         GridBagConstraints button2Position = new GridBagConstraints(0,1,1,1,1,1,CENTER,1, new Insets(0,0,0,0),1,1);
@@ -77,9 +77,9 @@ public class Game extends JFrame implements MouseListener {
         GridBagConstraints button15Position = new GridBagConstraints(3,2,1,1,1,1,CENTER,1, new Insets(0,0,0,0),1,1);
         button15.addMouseListener(this);
         add(button15, button15Position);
-        GridBagConstraints button16Position = new GridBagConstraints(3,3,1,1,1,1,CENTER,1, new Insets(0,0,0,0),1,1);
-        button16.addMouseListener(this);
-        add(button16, button16Position);
+//        GridBagConstraints button16Position = new GridBagConstraints(3,3,1,1,1,1,CENTER,1, new Insets(0,0,0,0),1,1);
+//        button16.addMouseListener(this);
+//        add(button16, button16Position);
     }
 
 
