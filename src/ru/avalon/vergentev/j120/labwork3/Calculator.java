@@ -1,7 +1,7 @@
 package ru.avalon.vergentev.j120.labwork3;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class Calculator extends JFrame implements ActionListener {
     JButton buttonFree1 = new JButton("");
@@ -42,7 +42,7 @@ public class Calculator extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(200,200,200));
         setResizable(true);
         setLocationRelativeTo(null);
-        setLayout(new GridBagLayout());        
+        setLayout(new GridBagLayout());
 
         GridBagConstraints textLabel1Position = new GridBagConstraints();
         setLabelInterface(textLabel1,  40, 40, 40, 0, 200, 0 ,
