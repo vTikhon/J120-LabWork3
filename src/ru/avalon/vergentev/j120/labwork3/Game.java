@@ -50,8 +50,26 @@ public class Game extends JFrame implements MouseMotionListener {
         int mousePositionX = ((int) getMousePosition().getX() / 100) * 100;
         int mousePositionY = ((int) getMousePosition().getY() / 100) * 100;
         buttonPushed.setLocation(mousePositionX, mousePositionY);
+        searchingForTheEmptyNode(buttonPushed);
+        System.out.println(xEmpty + ", " + yEmpty);
 
     }
+
+    public void searchingForTheEmptyNode (JButton buttonPushed) {
+        for (int n = 0; n < 4; n++) {
+            for (int m = 0; m < 4; m++) {
+                for (JButton i : button) {
+                    x = (i.getX()) / i.getWidth();
+                    y = (i.getY()) / i.getHeight();
+                    if (n != x && m != y) {
+                        xEmpty = n;
+                        yEmpty = m;
+                    }
+                }
+            }
+        }
+    }
+
 
 
 
@@ -62,22 +80,8 @@ public class Game extends JFrame implements MouseMotionListener {
 //        }
 //    }
 
-
 //    public void algorithmIfButtonIsPushed (JButton buttonPushed) {
-//        //searching coordinates of the empty button
-//        for (int n = 0; n < 4; n++) {
-//            for (int m = 0; m < 4; m++) {
-//                for (JButton i : button) {
-//                    x = (i.getX()) / i.getWidth();
-//                    y = (i.getY()) / i.getHeight();
-//                    if (n != x) {
-//                        xEmpty = n*buttonPushed.getWidth();
-//                    } else if (m != y) {
-//                        yEmpty = m*buttonPushed.getHeight();
-//                    }
-//            }
-//        }
-//        }
+//        searchingForTheEmptyNode(buttonPushed);
 //        System.out.println("old x, y = " + buttonPushed.getX() + ", " + buttonPushed.getY());
 //        System.out.println("Empty " + xEmpty + ", " + yEmpty);
 //        buttonPushed.setLocation(xEmpty, yEmpty);
