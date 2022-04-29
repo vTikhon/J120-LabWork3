@@ -2,7 +2,6 @@ package ru.avalon.vergentev.j120.labwork3;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
 import static java.awt.GridBagConstraints.CENTER;
 
 public class Calculator extends JFrame implements ActionListener {
@@ -154,7 +153,7 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     //METHODS
-    //метод определ€ющий внешний вид текстового лэйбла (дл€ конструктора)
+    //method which preset the appearance of the text label (for constructor)
     public void setLabelInterface (JLabel label,
                                    int redFore, int greenFore, int blueFore,
                                    int redBack, int greenBack, int blueBack,
@@ -164,7 +163,7 @@ public class Calculator extends JFrame implements ActionListener {
         add(label, labelPosition);
     }
 
-    //метод определ€ющий внешний вид кнопки (дл€ конструктора)
+    //method which preset the appearance of the buttons (for constructor)
     public void setButtonInterface (JButton button,
                                     int red, int green, int blue,
                                     GridBagConstraints buttonPosition) {
@@ -173,7 +172,6 @@ public class Calculator extends JFrame implements ActionListener {
         add(button, buttonPosition);
     }
 
-    //функционал нажатий на кнопки
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttonZero) algorithmIfDigitalButtonIsPushed("0");
@@ -223,7 +221,7 @@ public class Calculator extends JFrame implements ActionListener {
         textLabel2.setText(pole2String);
         pole2Double = Double.parseDouble(pole2String);
     }
-    
+
     public void algorithmIfOperationButtonIsPushed (String symbolOfButtonPushed) {
         if      (pole1String.contains("+") && pole2String.equals(""))  changeSymbolInTextLabel1(symbolOfButtonPushed);
         else if (pole1String.contains("+") && !pole2String.equals("")) calculatingIfOperationIsPushed("+", symbolOfButtonPushed);
