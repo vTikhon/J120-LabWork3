@@ -310,10 +310,10 @@ public class Calculator extends JFrame implements ActionListener {
     public double calculating (String operation) {
         pole2Double = Double.parseDouble(pole2String);
         switch (operation) {
-            case "+" -> pole1Double = pole1Double + pole2Double;
-            case "-" -> pole1Double = pole1Double - pole2Double;
-            case "\u00D7" -> pole1Double = pole1Double * pole2Double;
-            case "\u00F7" -> pole1Double = pole1Double / pole2Double;
+            case "+" : pole1Double = pole1Double + pole2Double; break;
+            case "-" : pole1Double = pole1Double - pole2Double; break;
+            case "\u00D7" : pole1Double = pole1Double * pole2Double; break;
+            case "\u00F7" : pole1Double = pole1Double / pole2Double; break;
         }
         return pole1Double;
     }
